@@ -3,11 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http');
 var path = require('path');
-var socketio = require('socket.io')
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-
 
 
 // Create Express App Object \\
@@ -27,23 +24,41 @@ app.get('/', function(req, res){
   res.sendFile('index.html', { root: './public/html' })
 });
 
-app.post('/login', function(req, res){
-	res.redirect('/jamSpace/' + req.body.destination)
+app.post('/userinfo', function(req, res){
+	console.log(req.body)
 })
 
-// app.get('/jamSpace/:jamDestination', function(req, res){
-// 	res.send(req.params.jamDestination)
-// })
 
-//Create the server
-var server = http.createServer(app)
+app.server = app.listen(3000)
 
-//Start the web socket server
-var io = socketio.listen(server);
+var io = require("socket.io")
+var socketServer = io(app.server)
+// socket stuff //
+// var io = socketio.listen(http);
+
+socketServer.on('connection', function(socket) {
+	console.log('a user has connected to jamSpace')
+
+	socket.on('destination', function(data){
+		var destination = data
+		console.log("user has entered " + data + " jamSpace")
+		socket.join(data)
+
+		socketServer.to(destination).emit('alertMessage', destination)
+	})
+
+	socket.on('notebeingplayed', function(data){
+
+		console.log(data.notes)
+
+		// rt
+		socketServer.to(data.destination).emit('music', data)
+	})
+
+
+
+
+})
+
 
 // Creating Server and Listening for Connections \\
-var port = 3000
-app.listen(port, function(){
-  console.log('Its all going down on port ' + port);
-
-})

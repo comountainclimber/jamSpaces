@@ -25,27 +25,75 @@ angular.module('App')
 
 			.when('/jamSpace/:jamDestination', {
 				templateUrl : '/html/jamming.html',
-				controller : 'mainController'
+				controller : 'jamController'
 			})
 	}])
 
 
 angular.module('App')
-	.controller('mainController', ['$scope', '$http','$routeParams', function($scope, $http, $routeParams){
-		// console.log($routeParams)
+	.controller('mainController', ['$scope', '$http','$routeParams', '$location', '$rootScope', function($scope, $http, $routeParams, $location, $rootScope){
+	var socket = io()
 
+	$scope.login = function() {
+		$location.url('/jamSpace/' + $scope.user.destination)		
+	}
+
+}])
+
+angular.module('App')
+	.controller('jamController', ['$scope', '$http','$routeParams', '$location', '$rootScope', function($scope, $http, $routeParams, $location, $rootScope){
 		
-		var jamDestination = $routeParams.jamDestination
+		var hat = document.getElementById('highHat')
+		var kick = document.getElementById('kick')
+		var snare = document.getElementById('snare')
 
-		// console.log(jamSpace)
-		$scope.login = function() {
-			console.log($scope.user)
-			$http.post('/login', $scope.user)
-			.then(function(returnData){
-				// var jamSpace = returnData.data
-				// console.log(jamSpace)
-			})
+		$scope.notePlayed = function(event){
+			$scope.inputs = event.which
+
+			if (event.which === 116){
+				hat.play()
+			}
+
+			if (event.which === 114){
+				kick.play()
+			}
+
+			if (event.which === 121){
+				snare.play()
+			}
+
+
+			socket.emit('notebeingplayed', { notes: $scope.inputs, destination: $routeParams.jamDestination})
 		}
 
 
+		$scope.destination = $routeParams.jamDestination
+
+		var socket = io()
+		socket.emit('destination', $routeParams.jamDestination)
+
+		socket.on('alertMessage', function(data){
+			console.log("user connected to " + data + " jamSpace")
+		})
+
+		socket.on('music', function(data){
+			console.log(data.notes)
+			if (data.notes === 116){
+			hat.play()
+			}
+
+			if (data.notes === 114){
+				kick.play()
+			}
+
+			if (data.notes === 121){
+				snare.play()
+			}
+		})
+
+
+		
 }])
+
+
+
