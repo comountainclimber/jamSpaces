@@ -28,14 +28,12 @@ app.get('/', function(req, res){
 });
 
 app.post('/login', function(req, res){
-	// var jamDestination = req.body.destination
-	console.log(req.body)
 	res.redirect('/jamSpace/' + req.body.destination)
 })
 
-app.get('/jamSpace/:jamDestination', function(req, res){
-	res.sendFile('jamming.html')
-})
+// app.get('/jamSpace/:jamDestination', function(req, res){
+// 	res.send(req.params.jamDestination)
+// })
 
 //Create the server
 var server = http.createServer(app)

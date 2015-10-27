@@ -23,23 +23,28 @@ angular.module('App')
 				controller : 'mainController'
 			})
 
-			// .when('/jamSpace/:destination', {
-			// 	templateUrl : '/html/jamming.html',
-			// 	controller : 'mainController'
-			// })
+			.when('/jamSpace/:jamDestination', {
+				templateUrl : '/html/jamming.html',
+				controller : 'mainController'
+			})
 	}])
 
 
 angular.module('App')
-	.controller('mainController', ['$scope', '$http', function($scope, $http){
+	.controller('mainController', ['$scope', '$http','$routeParams', function($scope, $http, $routeParams){
+		// console.log($routeParams)
 
+		
+		var jamDestination = $routeParams.jamDestination
+
+		// console.log(jamSpace)
 		$scope.login = function() {
 			console.log($scope.user)
 			$http.post('/login', $scope.user)
-			// .then(function(returnData){
-			// // console.log(returnData)
-			// 	$http.get('/jamSpace/:'+returnData.data)
-			// })
+			.then(function(returnData){
+				// var jamSpace = returnData.data
+				// console.log(jamSpace)
+			})
 		}
 
 
