@@ -6,3 +6,49 @@ body {
 a {
   color: #00B7FF;
 }
+
+.synth {
+    background-color: blueviolet;
+    height: 210px;
+        width: 690px;
+    padding-top: 5px;
+    padding-left: 12px;
+    margin-top: 20px;
+}
+
+.whitekey {
+    background-color:white;
+    width:50px;
+    height:200px;
+    border: solid black;
+    margin-left: -7px;
+    display: inline-block;
+}
+
+.whitekey:hover:active {
+	opacity:.5;
+}
+
+.blackkey:hover:active {
+	opacity:.5;
+}
+
+.afterblackkey {
+    background-color:white;
+    width:50px;
+    height:200px;
+    border: solid black;
+    display: inline-block;
+}
+
+.blackkey {
+    vertical-align: top;
+    background-color: black;
+    width: 35px;
+    height: 126px;
+    border: solid black;
+    display: inline-block;
+    margin-left: -23px;
+    margin-right: -20px;
+    position: absolute;
+}
