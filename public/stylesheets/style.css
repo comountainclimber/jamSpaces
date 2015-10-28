@@ -13,7 +13,7 @@ a {
         width: 690px;
     padding-top: 5px;
     padding-left: 12px;
-    margin-top: 20px;
+    margin: auto;
 }
 
 .whitekey {
@@ -57,3 +57,36 @@ a {
     background-color: #75FF21;
     color:white;
 }*/
+.landingPage {
+        background: purple;
+    margin-top: 20%;
+
+}
+
+.landingPage h1{
+    color:white;
+    font-family: 'VT323';
+    font-size: 64px;
+
+}
+
+.getStarted {
+        margin-bottom: 20px;
+        font-family: 'VT323';
+}
+
+.bit {
+    font-family: 'VT323';
+    font-size:25px;
+    text-align: center;
+}
+
+.loginPage input {
+  height:50px;
+}
+
+.where {
+    color:darkgrey;
+    font-size: 25px;
+/*     font-family: 'VT323'*/
+}
