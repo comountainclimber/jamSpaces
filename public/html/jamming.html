@@ -1,85 +1,98 @@
-<div ng-keypress="notePlayed($event)" tabindex="0">
-	<p> the {{destination}} jamSpace </p>
-</div>
-
-<!-- <audio controls>
-  <source src="8bitHat.wav" type="audio/wav">
-  <source src="8bitKick.wav" type="audio/wav">
-  <source src="8bitSnare.wav" type="audio/wav">
-</audio> -->
-
-<div>
-	Press "t" to trigger the HighHat - 
-	<audio id="highHat">
-	<source src="/html/8bitHat.wav">
-	</audio>
-</div>
-
-<div>
-	Press "r" to trigger the kick - 
-	<audio id="kick">
-	<source src="/html/8bitKick.wav">
-	</audio>
-</div>
-
-<div>
-	Press "y" to trigger the snare - 
-	<audio id = "snare">
-	<source src="/html/8bitSnare.wav">
-	</audio>
-</div>
+<div class = "container">
+    <div class="row">
+        <div class = "col-xs-12 text-center">
+	       <h1> {{destination}} jamSpace </h1>
+        </div>
+    </div>
 
 
-<div class = "synth">
-    <div class = "whitekey">
+    <div class = "row">
+        <div class = "col-xs-12 text-center">
+            <div ng-keypress="notePlayed($event)" tabindex="0" class="drums">
+                <strong> Click to play 8-bit drums </strong>
+            </div>
+            <div>
+            	Press "t" to trigger the HighHat - 
+            	<audio id="highHat">
+            	<source src="/html/8bitHat.wav">
+            	</audio>
+            </div>
+
+            <div>
+            	Press "r" to trigger the kick - 
+            	<audio id="kick">
+            	<source src="/html/8bitKick.wav">
+            	</audio>
+            </div>
+
+            <div>
+            	Press "y" to trigger the snare - 
+            	<audio id = "snare">
+            	<source src="/html/8bitSnare.wav">
+            	</audio>
+            </div>
+        </div>
     </div>
-    <div class= "blackkey">
+
+    <div class = "row">
+        <div class="col-xs-12">
+            <button ng-click="armMidi()"> click to play with midi </button>
+        </div>
+
+    <div class = "row">
+        <div class = "col-xs-10 text-center">
+            <div class = "synth">
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class = "whitekey">
+        </div> 
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class = "whitekey">
+        </div> 
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+        <div class= "blackkey">
+        </div>
+        <div class = "whitekey">
+        </div>
+            </div>
+        </div>
     </div>
-    <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-     <div class = "whitekey">
-    </div>
-     <div class = "whitekey">
-    </div>
-       
-    <div class= "blackkey">
-    </div>
-    <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-     <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-    <div class = "whitekey">
-    </div>
-    <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-    <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-     <div class = "whitekey">
-    </div>
-     <div class = "whitekey">
-    </div>
-      
-    <div class= "blackkey">
-    </div>
-    <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-     <div class = "whitekey">
-    </div>
-    <div class= "blackkey">
-    </div>
-    <div class = "whitekey">
-    </div>
+
 </div>
 <!-- <input type="../../audioSamples/8bitHat.wav"></input> -->

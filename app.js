@@ -48,14 +48,14 @@ socketServer.on('connection', function(socket) {
 	})
 
 	socket.on('notebeingplayed', function(data){
-
 		console.log(data.notes)
-
-		// rt
 		socketServer.to(data.destination).emit('music', data)
 	})
 
-
+	socket.on('midiData', function(data){
+		console.log(data)
+		socketServer.to(data.destination).emit('midi', data.midiData)
+	})
 
 
 })

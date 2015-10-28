@@ -33,14 +33,14 @@ a {
 	opacity:.5;
 }
 
-.afterblackkey {
+/*.afterblackkey {
     background-color:white;
     width:50px;
     height:200px;
     border: solid black;
     display: inline-block;
 }
-
+*/
 .blackkey {
     vertical-align: top;
     background-color: black;
@@ -52,3 +52,8 @@ a {
     margin-right: -20px;
     position: absolute;
 }
+
+/*.drums:active:hover {
+    background-color: #75FF21;
+    color:white;
+}*/

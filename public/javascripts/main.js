@@ -43,6 +43,23 @@ angular.module('App')
 angular.module('App')
 	.controller('jamController', ['$scope', '$http','$routeParams', '$location', '$rootScope', function($scope, $http, $routeParams, $location, $rootScope){
 		
+		// $scope.armMidi = function() {
+		// 	console.log("success!")
+		// 	Wad.midiInstrument = new Wad({source : 'sawtooth'});
+		// }
+		
+		// console.log(Wad.midiInputs[0])
+
+		if (Wad.midiInputs[0]) {
+			Wad.midiInputs[0].onmidimessage = function(event){
+				console.log(event.data)
+				socket.emit('midiData', {midiData:event.data, destination:$routeParams.jamDestination})	
+		}
+		}
+
+		// socket.on()
+
+
 		var hat = document.getElementById('highHat')
 		var kick = document.getElementById('kick')
 		var snare = document.getElementById('snare')
@@ -88,6 +105,34 @@ angular.module('App')
 
 			if (data.notes === 121){
 				snare.play()
+			}
+		})
+
+		socket.on('midi', function(data){
+			console.log(data[1])
+
+			if ( data[0] === 144 ) {
+				console.log("success!")
+				// Wad.midiInstrument = new Wad({source : 'sawtooth'})
+
+			 if ( data[2] === 0 ) { // noteOn velocity of 0 means this is actually a noteOff message
+                console.log('|| stopping note: ', Wad.pitchesArray[data[1]-12]);
+                Wad.midiInstrument.stop(Wad.pitchesArray[data[1]-12]);
+            }
+
+			else if ( data[1] > 0 ) {
+			Wad.midiInstrument = new Wad({source : 'sawtooth'})
+            console.log('> playing note: ', Wad.pitchesArray[data[1]-12]);
+            Wad.midiInstrument.play({pitch : Wad.pitchesArray[data[1]-12], label : Wad.pitchesArray[data[1]-12], callback : function(that){
+            }})
+
+            
+        }
+
+
+
+
+				// Wad.midiInstrument.play()
 			}
 		})
 
