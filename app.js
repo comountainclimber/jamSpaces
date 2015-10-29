@@ -57,6 +57,12 @@ socketServer.on('connection', function(socket) {
 		socketServer.to(data.destination).emit('midi', data.midiData)
 	})
 
+	socket.on('noteBeingClicked', function(data){
+		console.log(data.note)
+		socketServer.to(data.destination).emit('clickedNote', data.note)
+
+	})
+
 
 })
 

@@ -90,3 +90,7 @@ a {
     font-size: 25px;
 /*     font-family: 'VT323'*/
 }
+
+#ex1Slider .slider-selection {
+    background: #BABABA;
+}
