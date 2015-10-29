@@ -121,55 +121,55 @@ angular.module('App')
 		})
 
 //click handler for keyboard-----------------------
-		// Wad.midiInstrument = new Wad({source : 'sawtooth'})
-		// $scope.release = false
-		// $scope.keyboardClickRelease = function(event){
-		// 	console.log(event)
-		// 	$scope.release = true
-		// }
-		// $scope.keyboardClickRelease = function () {
-		// 	Wad.midiInstrument.stop()
-		// }
+		Wad.midiInstrument = new Wad({source : 'triangle'})
+		$scope.release = false
+		$scope.keyboardClickRelease = function(event){
+			console.log(event)
+			$scope.release = true
+		}
+		$scope.keyboardClickRelease = function () {
+			Wad.midiInstrument.stop()
+		}
 
-		// $scope.C3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "C4"})
-		// 	$scope.C4 = "C4"
-		// 	socket.emit("noteBeingClicked", { note: $scope.C4, destination: $routeParams.jamDestination})
-		// }
+		$scope.C3 = function (){
+			Wad.midiInstrument.play({pitch : "C4"})
+			$scope.C4 = "C4"
+			socket.emit("noteBeingClicked", { note: $scope.C4, destination: $routeParams.jamDestination})
+		}
 		
-		// $scope.Csharp3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "C#4"})
-		// }
-		// $scope.D3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "D4"})
-		// }
-		// $scope.Dsharp3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "D#4"})
-		// }
-		// $scope.E3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "E4"})
-		// }
-		// $scope.F3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "F4"})
-		// }
-		// $scope.Fsharp3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "F#4"})
-		// }
-		// $scope.G3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "G4"})
-		// }
-		// $scope.Gsharp3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "G#4"})
-		// }
-		// $scope.A3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "A4"})
-		// }
-		// $scope.Asharp3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "A#4"})
-		// }
-		// $scope.B3 = function (){
-		// 	Wad.midiInstrument.play({pitch : "B4"})
-		// }
+		$scope.Csharp3 = function (){
+			Wad.midiInstrument.play({pitch : "C#4"})
+		}
+		$scope.D3 = function (){
+			Wad.midiInstrument.play({pitch : "D4"})
+		}
+		$scope.Dsharp3 = function (){
+			Wad.midiInstrument.play({pitch : "D#4"})
+		}
+		$scope.E3 = function (){
+			Wad.midiInstrument.play({pitch : "E4"})
+		}
+		$scope.F3 = function (){
+			Wad.midiInstrument.play({pitch : "F4"})
+		}
+		$scope.Fsharp3 = function (){
+			Wad.midiInstrument.play({pitch : "F#4"})
+		}
+		$scope.G3 = function (){
+			Wad.midiInstrument.play({pitch : "G4"})
+		}
+		$scope.Gsharp3 = function (){
+			Wad.midiInstrument.play({pitch : "G#4"})
+		}
+		$scope.A3 = function (){
+			Wad.midiInstrument.play({pitch : "A4"})
+		}
+		$scope.Asharp3 = function (){
+			Wad.midiInstrument.play({pitch : "A#4"})
+		}
+		$scope.B3 = function (){
+			Wad.midiInstrument.play({pitch : "B4"})
+		}
 
 
 // });

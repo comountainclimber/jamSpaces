@@ -1,98 +1,124 @@
-<div class = "container">
-    <div class="row">
-        <div class = "col-xs-12 text-center">
-	       <h1> {{destination}} jamSpace </h1>
-        </div>
-    </div>
-
-
-    <div class = "row">
-        <div class = "col-xs-12 text-center">
-            <div ng-keypress="notePlayed($event)" tabindex="0" class="drums">
-                <strong> Click to play 8-bit drums </strong>
-            </div>
-            <div>
-            	Press "t" to trigger the HighHat - 
-            	<audio id="highHat">
-            	<source src="/html/8bitHat.wav">
-            	</audio>
-            </div>
-
-            <div>
-            	Press "r" to trigger the kick - 
-            	<audio id="kick">
-            	<source src="/html/8bitKick.wav">
-            	</audio>
-            </div>
-
-            <div>
-            	Press "y" to trigger the snare - 
-            	<audio id = "snare">
-            	<source src="/html/8bitSnare.wav">
-            	</audio>
+<div class = "jamming">
+    <div class = "container">
+        <div class="row">
+            <div class = "col-xs-12 text-center">
+    	       <h1> {{destination}} jamSpace </h1>
             </div>
         </div>
-    </div>
 
-<!--     <div class = "row">
-        <div class="col-xs-12">
-            <button ng-click="armMidi()"> click to play with midi </button>
-        </div> -->
 
-    <div class = "row">
-        <div class = "col-xs-12 text-center">
-            <div class = "synth">
-                <div class = "whitekey" ng-mousedown="C3()" ng-mouseup="keyboardClickRelease()">
+        <div class = "row">
+            <div class = "col-xs-12 text-center">
+                <div ng-keypress="notePlayed($event)" tabindex="0" class="drums">
+                    <strong> Click to play 8-bit drums </strong>
                 </div>
-                <div class= "blackkey" ng-mousedown="Csharp3()" ng-mouseup="keyboardClickRelease($event)">
+                <div>
+                	Press "t" to trigger the HighHat - 
+                	<audio id="highHat">
+                	<source src="/html/8bitHat.wav">
+                	</audio>
                 </div>
-                <div class = "whitekey" ng-mousedown="D3()" ng-mouseup="keyboardClickRelease($event)">
+
+                <div>
+                	Press "r" to trigger the kick - 
+                	<audio id="kick">
+                	<source src="/html/8bitKick.wav">
+                	</audio>
                 </div>
-                <div class= "blackkey" ng-mousedown="Dsharp3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class = "whitekey" ng-mousedown="E3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class = "whitekey" ng-mousedown="F3()" ng-mouseup="keyboardClickRelease($event)">
-                </div> 
-                <div class= "blackkey" ng-mousedown="Fsharp3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class = "whitekey" ng-mousedown="G3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class= "blackkey" ng-mousedown="Gsharp3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class = "whitekey" ng-mousedown="A3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class= "blackkey" ng-mousedown="Asharp3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class = "whitekey" ng-mousedown="B3()" ng-mouseup="keyboardClickRelease($event)">
-                </div>
-                <div class = "whitekey">
-                </div>
-                <div class= "blackkey">
-                </div>
-                <div class = "whitekey">
-                </div>
-                <div class= "blackkey">
-                </div>
-                <div class = "whitekey">
-                </div>
-                <div class = "whitekey">
-                </div> 
-                <div class= "blackkey">
-                </div>
-                <div class = "whitekey">
-                </div>
-                <div class= "blackkey">
-                </div>
-                <div class = "whitekey">
-                </div>
-                <div class= "blackkey">
-                </div>
-                <div class = "whitekey">
+
+                <div>
+                	Press "y" to trigger the snare - 
+                	<audio id = "snare">
+                	<source src="/html/8bitSnare.wav">
+                	</audio>
                 </div>
             </div>
         </div>
-    </div>
 
+    <!--     <div class = "row">
+            <div class="col-xs-12">
+                <button ng-click="armMidi()"> click to play with midi </button>
+            </div> -->
+
+        <div class = "row">
+            <div class = "col-xs-12 text-center">
+                <div class = "synth">
+                    <div class = "whitekey" ng-mousedown="C3()" ng-mouseup="keyboardClickRelease()">
+                    </div>
+                    <div class= "blackkey" ng-mousedown="Csharp3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey" ng-mousedown="D3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class= "blackkey" ng-mousedown="Dsharp3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey" ng-mousedown="E3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey" ng-mousedown="F3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div> 
+                    <div class= "blackkey" ng-mousedown="Fsharp3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey" ng-mousedown="G3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class= "blackkey" ng-mousedown="Gsharp3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey" ng-mousedown="A3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class= "blackkey" ng-mousedown="Asharp3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey" ng-mousedown="B3()" ng-mouseup="keyboardClickRelease($event)">
+                    </div>
+                    <div class = "whitekey">
+                    </div>
+                    <div class= "blackkey">
+                    </div>
+                    <div class = "whitekey">
+                    </div>
+                    <div class= "blackkey">
+                    </div>
+                    <div class = "whitekey">
+                    </div>
+                    <div class = "whitekey">
+                    </div> 
+                    <div class= "blackkey">
+                    </div>
+                    <div class = "whitekey">
+                    </div>
+                    <div class= "blackkey">
+                    </div>
+                    <div class = "whitekey">
+                    </div>
+                    <div class= "blackkey">
+                    </div>
+                    <div class = "whitekey">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class ="row">
+            <div class = "col-xs-12 text-center">
+                <div class = "mpc">
+                    
+                    <div class = "setType">
+                        basic 8-bit
+                    </div>
+                    <div class ="arrow-left">
+                    </div>
+                    <div class ="arrow-right">
+                    </div>
+                    <div class = "drumPad"> 
+                    </div>
+                    <div class = "drumPad">
+                    </div>
+                    <div class = "drumPad">
+                    </div>
+                    <div class = "drumPad">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </div>
-<!-- <input type="../../audioSamples/8bitHat.wav"></input> -->
+    <!-- <input type="../../audioSamples/8bitHat.wav"></input> -->
