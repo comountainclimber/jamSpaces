@@ -120,6 +120,7 @@ angular.module('App')
 				$scope.pad4BeingPlayed = true
 				// snare.play()
 			}
+		socket.emit('notebeingplayed', { notes: $scope.inputs, destination: $routeParams.jamDestination})
 	}
 
 	
