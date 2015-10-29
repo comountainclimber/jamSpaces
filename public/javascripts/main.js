@@ -62,24 +62,65 @@ angular.module('App')
 		}
 
 //the drum machine------------------------------------
-		var hat = document.getElementById('highHat')
-		var kick = document.getElementById('kick')
-		var snare = document.getElementById('snare')
+		// var hat = document.getElementById('highHat')
+		// var kick = document.getElementById('kick')
+		// var snare = document.getElementById('snare')
 
-		$scope.notePlayed = function(event){
+		// $scope.notePlayed = function(event){
+		// 	$scope.inputs = event.which
+		// 	if (event.which === 116){
+		// 		hat.play()
+		// 	}
+		// 	if (event.which === 114){
+		// 		kick.play()
+		// 	}
+		// 	if (event.which === 121){
+		// 		snare.play()
+		// 	}
+		// socket.emit('notebeingplayed', { notes: $scope.inputs, destination: $routeParams.jamDestination})
+		// }
+
+	//***********the 8 bit kit***************//
+
+	// $scope.pad1BeingPlayed = false
+
+	$scope.releaseKeyStroke = function () {
+		$scope.pad1BeingPlayed = false
+		$scope.pad2BeingPlayed = false
+		$scope.pad3BeingPlayed = false
+		$scope.pad4BeingPlayed = false
+	}
+
+	var hat = new Wad({source : '/html/8bitHat.wav'})
+	var kick = new Wad({source : '/html/8bitKick.wav'})
+	var snare = new Wad({source : '/html/8bitSnare.wav'})
+
+	$scope.notePlayed = function(event){
+			console.log(event.which)
 			$scope.inputs = event.which
-			if (event.which === 116){
-				hat.play()
-			}
+
+
 			if (event.which === 114){
+				$scope.pad1BeingPlayed = true
 				kick.play()
 			}
+
+			if (event.which === 116){
+				$scope.pad2BeingPlayed = true
+				hat.play()
+			}
+			
+			
 			if (event.which === 121){
+				$scope.pad3BeingPlayed = true
 				snare.play()
 			}
-		socket.emit('notebeingplayed', { notes: $scope.inputs, destination: $routeParams.jamDestination})
-		}
 
+			if (event.which === 117){
+				$scope.pad4BeingPlayed = true
+				// snare.play()
+			}
+	}
 
 	
 //handling incoming drum machine "notes"------------------------------------
@@ -113,7 +154,10 @@ angular.module('App')
                 Wad.midiInstrument.stop(Wad.pitchesArray[data[1]-12]);
             }
 			else if ( data[1] > 0 ) {
-			Wad.midiInstrument = new Wad({source : 'sawtooth'})
+				Wad.midiInstrument = new Wad({
+					source : 'triangle',
+					volume  : .4
+			})
             console.log('> playing note: ', Wad.pitchesArray[data[1]-12]);
             Wad.midiInstrument.play({pitch : Wad.pitchesArray[data[1]-12], label : Wad.pitchesArray[data[1]-12], callback : function(that){
             }})
@@ -121,7 +165,15 @@ angular.module('App')
 		})
 
 //click handler for keyboard-----------------------
-		Wad.midiInstrument = new Wad({source : 'triangle'})
+		Wad.midiInstrument = new Wad({
+			source : 'triangle',
+			volume  : .4
+
+
+		})
+
+
+
 		$scope.release = false
 		$scope.keyboardClickRelease = function(event){
 			console.log(event)

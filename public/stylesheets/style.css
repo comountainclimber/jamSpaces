@@ -62,13 +62,15 @@ a {
 
 .synth {
     background-color: blueviolet;
-    height: 210px;
+    height: 310px;
     width: 690px;
-    padding-top: 5px;
+    padding-top: 106px;
     padding-left: 12px;
     margin: auto;
-    margin-bottom:20px;
+    margin-bottom: 20px;
+    margin-top: -147px;
 }
+
 
 .jamming {
     background-color: darkgrey;
@@ -140,6 +142,10 @@ a {
     opacity:.8;
 }
 
+.drumPadPlayed {
+    opacity: .8;
+}
+
 .drumPad p{
     text-align:center;
 }
@@ -156,6 +162,48 @@ a {
      font-size: 28px;
      color:#0BCE0B;
 }
+
+.synthsetType {
+    background-color: black;
+    height: 30px;
+    width: 305px;
+    margin: auto;
+    margin-bottom: -85px;
+    font-family: 'VT323';
+    font-size: 28px;
+    color: #0BCE0B;
+    position: relative;
+}
+
+.syntharrow-left{
+      width: 0px;
+      height: 0px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid;
+      margin-left: 398px;
+      cursor: pointer;
+      margin-top: -20px;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: -24px;
+}
+
+.syntharrow-right{
+       width: 0px;
+       height: 0px;
+       border-top: 10px solid transparent;
+       border-bottom: 10px solid transparent;
+       border-left: 10px solid;
+       margin-left: 733px;
+       margin-top: 60px;
+       cursor: pointer;
+       position: relative;
+       margin-bottom: -30px;
+}
+
+
+
 
 .arrow-left {
       width: 0px;
@@ -178,4 +226,11 @@ a {
           margin-left: 331px;
           margin-top: -20px;
           cursor: pointer;
+}
+
+.volume {
+            margin-left: 470px;
+            margin-top: 78px;
+            position: relative;
+            margin-bottom: 49px;
 }

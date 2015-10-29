@@ -7,7 +7,7 @@
         </div>
 
 
-        <div class = "row">
+<!--         <div class = "row">
             <div class = "col-xs-12 text-center">
                 <div ng-keypress="notePlayed($event)" tabindex="0" class="drums">
                     <strong> Click to play 8-bit drums </strong>
@@ -33,7 +33,7 @@
                 	</audio>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     <!--     <div class = "row">
             <div class="col-xs-12">
@@ -42,62 +42,71 @@
 
         <div class = "row">
             <div class = "col-xs-12 text-center">
-                <div class = "synth">
-                    <div class = "whitekey" ng-mousedown="C3()" ng-mouseup="keyboardClickRelease()">
-                    </div>
-                    <div class= "blackkey" ng-mousedown="Csharp3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey" ng-mousedown="D3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class= "blackkey" ng-mousedown="Dsharp3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey" ng-mousedown="E3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey" ng-mousedown="F3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div> 
-                    <div class= "blackkey" ng-mousedown="Fsharp3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey" ng-mousedown="G3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class= "blackkey" ng-mousedown="Gsharp3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey" ng-mousedown="A3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class= "blackkey" ng-mousedown="Asharp3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey" ng-mousedown="B3()" ng-mouseup="keyboardClickRelease($event)">
-                    </div>
-                    <div class = "whitekey">
-                    </div>
-                    <div class= "blackkey">
-                    </div>
-                    <div class = "whitekey">
-                    </div>
-                    <div class= "blackkey">
-                    </div>
-                    <div class = "whitekey">
-                    </div>
-                    <div class = "whitekey">
-                    </div> 
-                    <div class= "blackkey">
-                    </div>
-                    <div class = "whitekey">
-                    </div>
-                    <div class= "blackkey">
-                    </div>
-                    <div class = "whitekey">
-                    </div>
-                    <div class= "blackkey">
-                    </div>
-                    <div class = "whitekey">
-                    </div>
+                <div class="syntharrow-left">
+                </div>
+                <div class = "synthsetType">
+                        Triangle audiowave
+                </div>
+                <div class="syntharrow-right">
+                </div>
+                    <input class="volume" type=range min=0 max=100 value=10 step=1>
+                        VOLUME
+                        <div class = "synth">
+                            <div class = "whitekey" ng-mousedown="C3()" ng-mouseup="keyboardClickRelease()">
+                            </div>
+                            <div class= "blackkey" ng-mousedown="Csharp3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey" ng-mousedown="D3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class= "blackkey" ng-mousedown="Dsharp3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey" ng-mousedown="E3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey" ng-mousedown="F3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div> 
+                            <div class= "blackkey" ng-mousedown="Fsharp3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey" ng-mousedown="G3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class= "blackkey" ng-mousedown="Gsharp3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey" ng-mousedown="A3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class= "blackkey" ng-mousedown="Asharp3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey" ng-mousedown="B3()" ng-mouseup="keyboardClickRelease($event)">
+                            </div>
+                            <div class = "whitekey">
+                            </div>
+                            <div class= "blackkey">
+                            </div>
+                            <div class = "whitekey">
+                            </div>
+                            <div class= "blackkey">
+                            </div>
+                            <div class = "whitekey">
+                            </div>
+                            <div class = "whitekey">
+                            </div> 
+                            <div class= "blackkey">
+                            </div>
+                            <div class = "whitekey">
+                            </div>
+                            <div class= "blackkey">
+                            </div>
+                            <div class = "whitekey">
+                            </div>
+                            <div class= "blackkey">
+                            </div>
+                            <div class = "whitekey">
+                            </div>
+                        </div>
                 </div>
             </div>
-        </div>
 
         <div class ="row">
             <div class = "col-xs-12 text-center">
-                <div class = "mpc">
+                <div class = "mpc" ng-keypress="notePlayed($event)" tabindex="0" ng-keyup="releaseKeyStroke()">
                     
                     <div class = "setType">
                         basic 8-bit
@@ -106,13 +115,13 @@
                     </div>
                     <div class ="arrow-right">
                     </div>
-                    <div class = "drumPad"> 
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad1BeingPlayed} > 
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad2BeingPlayed}>
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad3BeingPlayed}>
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad4BeingPlayed}>
                     </div>
                 </div>
             </div>
