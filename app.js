@@ -49,12 +49,12 @@ socketServer.on('connection', function(socket) {
 
 	socket.on('notebeingplayed', function(data){
 		console.log(data)
+		socketServer.to(data.destination).emit('music', data)
+	})
 
-		// setTimeout(function(){
-			socketServer.to(data.destination).emit('music', data)
-		// }, 100)
-		
-
+	socket.on('notebeingtouched', function(data){
+		console.log(data)
+		socketServer.to(data.destination).emit('touchedNotes', data)
 	})
 
 	socket.on('midiData', function(data){

@@ -10,35 +10,47 @@ a {
 
 /*****************LANDING PAGE************************/
 
-.landingPage {
+/* .landingPage {
     background: purple;
     margin-top: 20%;
 
-}
+} */
 
-.landingPage h1{
+/*.landingPage h1{
     color:white;
     font-family: 'VT323';
     font-size: 64px;
-}
+}*/
 
 
-.landingPage {
+/* .landingPage {
         background: purple;
     margin-top: 20%;
 
+} */
+
+.nav_bar a{
+  text-decoration: none;
 }
 
-.landingPage h1{
-    color:white;
+.nav_bar h1{
+  color: black;
+}
+
+.info {
+    color: #2EE82E;
     font-family: 'VT323';
-    font-size: 64px;
+    font-size: 34px;
+    background-color: black;
+    margin-top:10px;
+    margin-bottom:10px;
 
 }
 
 .getStarted {
         margin-bottom: 20px;
         font-family: 'VT323';
+        font-size: 30px;
 }
 
 .bit {
@@ -46,6 +58,17 @@ a {
     font-size:25px;
     text-align: center;
 }
+
+.bit2{
+      font-family: 'VT323';
+      text-align: left;
+      margin-top: -10px;
+}
+
+.nav_bar{
+  border-bottom: solid thin black
+}
+
 
 .loginPage input {
   height:50px;
@@ -75,10 +98,18 @@ a {
 .jamming {
     background-color: darkgrey;
     border-radius:20px;
+    min-width: 500px;
+   margin-top: 10px;
+}
+
+.jamSpaceInfo {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
+  color:white;
 }
 
 /*****************KEYBOARD************************/
-.whitekey {
+/*.whitekey {
     background-color:white;
     width:50px;
     height:200px;
@@ -108,15 +139,15 @@ a {
     margin-right: -20px;
     position: absolute;
     cursor:pointer;
-}
+}*/
 
 /*****************DRUM MACHINE************************/
 .mpc {
-    background-color: darkblue;
+      background-color: darkblue;
     border: solid black;
     border-top: none;
     border-right: none;
-    height: 175px;
+    height: 300px;
     border-radius: 20px;
     width: 450px;
     margin: auto;
@@ -125,7 +156,7 @@ a {
 }
 
 .drumPad {
-    background-color: darkgrey;
+    background-color: seashell;
     height: 75px;
     width: 75px;
     border-radius: 10px;
@@ -138,12 +169,13 @@ a {
     cursor: pointer;
 }
 
-.drumPad:active:hover {
+/*.drumPad:active:hover {
     opacity:.8;
-}
+}*/
 
 .drumPadPlayed {
     opacity: .8;
+    background-color: red;
 }
 
 .drumPad p{
@@ -233,4 +265,70 @@ a {
             margin-top: 78px;
             position: relative;
             margin-bottom: 49px;
+}
+
+
+@media screen and (max-width: 550px) {
+
+.mpc {
+   background-color: red;
+    border: solid black;
+    border-top: none;
+    border-right: none;
+    height: 525px;
+    border-radius: 20px;
+    width: 250px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.arrow-left {
+      width: 0px;
+      height: 0px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid;
+      margin-left: 9px;
+      cursor: pointer;
+      margin-top: -20px;
+      margin-top: 20px;
+}
+
+.arrow-right {
+          width: 0px;
+          height: 0px;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid;
+          margin-left: 230px;
+          margin-top: -20px;
+          cursor: pointer;
+}
+
+
+.jamming {
+    background-color: darkgrey;
+    border-radius:20px;
+    min-width: 300px;
+   margin-top: 10px;
+  /* margin-left: -40px;*/
+
+}
+
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+.jamming {
+    background-color: darkgrey;
+    border-radius:20px;
+    min-width: 280px;
+   margin-top: 10px;
+   margin-left: -30px;
+
+}
+
 }
