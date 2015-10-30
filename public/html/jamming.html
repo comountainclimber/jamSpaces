@@ -109,11 +109,11 @@
                 <div class = "mpc" ng-keypress="notePlayed($event)" tabindex="0" ng-keyup="releaseKeyStroke()">
                     
                     <div class = "setType">
-                        basic 8-bit
+                        {{currentKit}}
                     </div>
-                    <div class ="arrow-left">
+                    <div class ="arrow-left" ng-click="changeKitDown()">
                     </div>
-                    <div class ="arrow-right">
+                    <div class ="arrow-right" ng-click="changeKitUp()">
                     </div>
                     <div class = "drumPad" ng-class={"drumPadPlayed":pad1BeingPlayed} > 
                     </div>

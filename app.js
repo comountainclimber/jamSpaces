@@ -48,8 +48,13 @@ socketServer.on('connection', function(socket) {
 	})
 
 	socket.on('notebeingplayed', function(data){
-		console.log(data.notes)
-		socketServer.to(data.destination).emit('music', data)
+		console.log(data)
+
+		// setTimeout(function(){
+			socketServer.to(data.destination).emit('music', data)
+		// }, 100)
+		
+
 	})
 
 	socket.on('midiData', function(data){

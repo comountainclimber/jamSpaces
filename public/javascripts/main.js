@@ -84,18 +84,47 @@ angular.module('App')
 
 	// $scope.pad1BeingPlayed = false
 
+
+
+
+	$scope.drumSets = [
+	{kit: "basic8bit"},
+	{kit: "junk"},
+	{kit: "kit1"},
+	{kit: "kit2"}
+	]
+
 	$scope.releaseKeyStroke = function () {
 		$scope.pad1BeingPlayed = false
 		$scope.pad2BeingPlayed = false
 		$scope.pad3BeingPlayed = false
 		$scope.pad4BeingPlayed = false
 	}
+	
 
-	var hat = new Wad({source : '/html/8bitHat.wav'})
-	var kick = new Wad({source : '/html/8bitKick.wav'})
-	var snare = new Wad({source : '/html/8bitSnare.wav'})
+	x = 0
+	$scope.currentKit = $scope.drumSets[x].kit
+	$scope.changeKitUp = function (){
+		// console.log("changing the drumset")
+		(x++)
+		console.log(x)
+		console.log($scope.drumSets[x].kit)
+		$scope.currentKit = $scope.drumSets[x].kit
+	
+	
+	 hat = new Wad({source : '/drums/' + $scope.currentKit + '/1.wav'})
+	kick = new Wad({source : '/drums/' + $scope.currentKit + '/2.wav'})
+	snare = new Wad({source : '/drums/' + $scope.currentKit + '/3.wav'})
+	aux = new Wad({source : '/drums/' + $scope.currentKit + '/4.wav'})
+	
 
-	$scope.notePlayed = function(event){
+
+	console.log(hat)
+	console.log(kick)
+	console.log(aux)
+	}
+
+		$scope.notePlayed = function(event){
 			console.log(event.which)
 			$scope.inputs = event.which
 
@@ -118,30 +147,53 @@ angular.module('App')
 
 			if (event.which === 117){
 				$scope.pad4BeingPlayed = true
-				// snare.play()
+				aux.play()
 			}
-		socket.emit('notebeingplayed', { notes: $scope.inputs, destination: $routeParams.jamDestination})
-	}
+		socket.emit('notebeingplayed', { 	notes:$scope.inputs, 
+											destination:$routeParams.jamDestination, 
+											drum:$scope.currentKit
+										})
+		}
 
+	var hat = new Wad({source : '/drums/' + $scope.currentKit + '/1.wav'})
+	var kick = new Wad({source : '/drums/' + $scope.currentKit + '/2.wav'})
+	var snare = new Wad({source : '/drums/' + $scope.currentKit + '/3.wav'})
+	var aux = new Wad({source : '/drums/' + $scope.currentKit + '/4.wav'})
+
+	console.log(hat)
+	console.log(kick)
+	console.log(aux)
+	// console.log('/drums/' + $scope.drumSets[x].kit + '/3.wav')
+
+	
 	
 //handling incoming drum machine "notes"------------------------------------
 		socket.on('music', function(data){
 			console.log(data.notes)
+			console.log(data.drum)
 			if (data.notes === 116){
-			hat.play()
+				var ehat = new Wad({source : '/drums/' + data.drum + '/1.wav'})
+				ehat.play()
 			}
 			if (data.notes === 114){
-				kick.play()
+				var ekick = new Wad({source : '/drums/' + data.drum + '/2.wav'})
+				ekick.play()
 			}
 			if (data.notes === 121){
-				snare.play()
+				var esnare = new Wad({source : '/drums/' + data.drum + '/3.wav'})
+				esnare.play()
+			}
+
+			if (data.notes === 117){
+				var eaux = new Wad({source : '/drums/' + data.drum + '/4.wav'})
+				eaux.play()
 			}
 		})
 
 //handling incoming clicks on the keyboard-------------------------------
-		// socket.on('clickedNote', function(data){
-		// 	Wad.midiInstrument.play({pitch : data})
-		// })
+		socket.on('clickedNote', function(data){
+			Wad.midiInstrument.play({pitch : data})
+		})
 
 
 //midi input (from server) handler and emmission-----------------------
