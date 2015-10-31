@@ -40,11 +40,12 @@ a {
 .info {
     color: #2EE82E;
     font-family: 'VT323';
-    font-size: 34px;
+    font-size: 25px;
     background-color: black;
-    margin-top:10px;
-    margin-bottom:10px;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px
 }
 
 .getStarted {

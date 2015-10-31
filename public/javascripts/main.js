@@ -54,6 +54,7 @@ angular.module('App')
 //the drum machine------------------------------------
 
 	$scope.drumSets = [
+	{kit: "tonal"},
 	{kit: "basic8bit"},
 	{kit: "junk"},
 	{kit: "kit1"},
@@ -97,10 +98,6 @@ angular.module('App')
 	// 	$scope.touchedKick = true
 	// 	console.log("kick drum")
 	// }
-
-
-	
-
 
 // this function sets the pads back to default styling on key release
 	$scope.releaseKeyStroke = function () {
