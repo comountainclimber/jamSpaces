@@ -43,13 +43,102 @@ angular.module('App')
 		})
 
 
+$scope.waveTypes = [
+	{type: "sine"},
+	{type: "triangle"},
+	{type: "square"},
+	{type: "sawtooth"}
+]
+
+$scope.midiParams = {
+	delay: .8,
+	volume: .8
+}
+
+
 //midi output handler and emmission-----------------------
-		if (Wad.midiInputs[0]) {
-			Wad.midiInputs[0].onmidimessage = function(event){
-				console.log(event.data)
-				socket.emit('midiData', {midiData:event.data, destination:$routeParams.jamDestination})	
-		}
-		}
+
+	$scope.selectedWaveType = $scope.waveTypes[1].type
+$scope.selectWave = function(event){
+	console.log($scope.waveTypes[event].type)
+	$scope.selectedWaveType = $scope.waveTypes[event].type
+	console.log($scope.selectedWaveType)
+	Wad.midiInstrument = new Wad({source : $scope.selectedWaveType,
+							filter  : {frequency : 900},
+    						delay   : {delayTime : $scope.midiParams.delay}
+							})
+}
+
+// console.log(Wad.midiInputs)
+
+if (Wad.midiInputs[0]) {
+	$scope.revealMidiController = true
+}
+
+	$scope.revealParams = false
+	$scope.armMidi = function(){
+		$scope.revealParams = !$scope.revealParams
+		$scope.connectedMidiDevices = Wad.midiInputs
+
+
+
+
+		console.log(Wad.midiInputs[1])
+		// Wad.midiInstrument = new Wad({source : 'triangle'})
+		// console.log("armMidi")
+			if (Wad.midiInputs[1]) {
+				Wad.midiInputs[1].onmidimessage = function(event){
+					// console.log(event.data)
+					socket.emit('midiData', {  midiData: event.data, 
+											destination:$routeParams.jamDestination,
+											waveForm   : $scope.selectedWaveType
+											})	
+				}
+			}
+	}
+
+
+
+
+// midi input (from server) handler and emmission-----------------------
+		socket.on('midi', function(data){
+			console.log(data)
+
+
+			Wad.midiInstrument.source = data.waveForm
+			$scope.selectedWaveType = data.waveForm
+			
+			// $scope.$apply(function(){ $scope.selectedWaveType = data.waveForm })
+			// console.log($scope.selectedWaveType)
+
+			   	// Wad.midiInstrument = new Wad({source : data.waveForm,
+							// filter  : {frequency : 900},
+    			// 			delay   : {delayTime : .8}
+							// })
+
+        // console.log(event.receivedTime, event.data);
+	        if ( data.midiData[0] === 144 ) { // 144 means the midi message has note data
+	            // console.log('note')
+	            if ( data.midiData[2] === 0 ) { // noteOn velocity of 0 means this is actually a noteOff message
+	                // console.log('|| stopping note: ', Wad.pitchesArray[data[1]-12]);
+	                Wad.midiInstrument.stop(Wad.pitchesArray[data.midiData[1]-12]);
+	            }
+	            else if ( data.midiData[2] > 0 ) {
+	                // console.log('> playing note: ', Wad.pitchesArray[data[1]-12]);
+	                Wad.midiInstrument.play({pitch : Wad.pitchesArray[data.midiData[1]-12],
+	                						label : Wad.pitchesArray[data.midiData[1]-12], callback : function(that){
+	                						}})
+	            }
+        	}
+
+     
+        })
+
+
+  Wad.midiInstrument = new Wad({source : $scope.selectedWaveType,
+							filter  : {frequency : 900},
+    						delay   : {delayTime : $scope.midiParams.delay}
+							})
 
 //the drum machine------------------------------------
 
@@ -77,6 +166,10 @@ angular.module('App')
 	kick = new Wad({source : '/drums/' + $scope.currentKit + '/2.wav'})
 	snare = new Wad({source : '/drums/' + $scope.currentKit + '/3.wav'})
 	aux = new Wad({source : '/drums/' + $scope.currentKit + '/4.wav'})
+	pad5 = new Wad({source : '/drums/' + $scope.currentKit + '/5.wav'})
+	pad6 = new Wad({source : '/drums/' + $scope.currentKit + '/6.wav'})
+	pad7 = new Wad({source : '/drums/' + $scope.currentKit + '/7.wav'})
+	pad8 = new Wad({source : '/drums/' + $scope.currentKit + '/8.wav'})
 	
 	console.log(hat)
 	console.log(kick)
@@ -87,17 +180,16 @@ angular.module('App')
 		(x--)
 	$scope.currentKit = $scope.drumSets[x].kit
 	
-	 hat = new Wad({source : '/drums/' + $scope.currentKit + '/1.wav'})
+	hat = new Wad({source : '/drums/' + $scope.currentKit + '/1.wav'})
 	kick = new Wad({source : '/drums/' + $scope.currentKit + '/2.wav'})
 	snare = new Wad({source : '/drums/' + $scope.currentKit + '/3.wav'})
 	aux = new Wad({source : '/drums/' + $scope.currentKit + '/4.wav'})
+	pad5 = new Wad({source : '/drums/' + $scope.currentKit + '/5.wav'})
+	pad6 = new Wad({source : '/drums/' + $scope.currentKit + '/6.wav'})
+	pad7 = new Wad({source : '/drums/' + $scope.currentKit + '/7.wav'})
+	pad8 = new Wad({source : '/drums/' + $scope.currentKit + '/8.wav'})
 	
 	}
-	// $scope.touchedKick = false
-	// $scope.touchKick = function (){
-	// 	$scope.touchedKick = true
-	// 	console.log("kick drum")
-	// }
 
 // this function sets the pads back to default styling on key release
 	$scope.releaseKeyStroke = function () {
@@ -105,6 +197,10 @@ angular.module('App')
 		$scope.pad2BeingPlayed = false
 		$scope.pad3BeingPlayed = false
 		$scope.pad4BeingPlayed = false
+		$scope.pad5BeingPlayed = false
+		$scope.pad6BeingPlayed = false
+		$scope.pad7BeingPlayed = false
+		$scope.pad8BeingPlayed = false
 	}
 
 		$scope.releasePad = function (){
@@ -114,30 +210,40 @@ angular.module('App')
 		$scope.pad2BeingPlayed = false
 		$scope.pad3BeingPlayed = false
 		$scope.pad4BeingPlayed = false
+		$scope.padf5BeingPlayed = false
+		$scope.pad6BeingPlayed = false
+		$scope.pad7BeingPlayed = false
+		$scope.pad8BeingPlayed = false
 
-		console.log($scope.pad1BeingPlayed)
+		// console.log($scope.pad1BeingPlayed)
 	}
 
+	// $scope.padFunctions = [
+	// 	{drum: "kick.play()"},
+	// 	{drum: "hat.play()"},
+	// 	{drum: "snare.play()"},
+	// 	{drum: "aux.play()"},
+	// 	{drum: "pad5.play()"},
+	// 	{drum: "pad6.play()"},
+	// 	{drum: "pad7.play()"},
+	// 	{drum: "pad8.play()"}
+	// ]
+
+//for smart phone and click integration ------------------------------------------
 	$scope.clickPad1 = function(){
 		$scope.clickedPad1 = true
-		console.log("clicked pad 1")
-
 		if ($scope.clickedPad1===true){
 				$scope.pad1BeingPlayed = true
 				kick.play()
 			}
-
 		socket.emit('notebeingtouched', { 	note		: 1, 
 											destination : $routeParams.jamDestination, 
 											drum        : $scope.currentKit
 										})
-
 	}
 
 	$scope.clickPad2 = function(){
 		$scope.clickedPad2 = true
-		console.log("clicked pad 2")
-
 		if ($scope.clickedPad2===true){
 				$scope.pad2BeingPlayed = true
 				hat.play()
@@ -150,8 +256,6 @@ angular.module('App')
 	}
 	$scope.clickPad3 = function(){
 		$scope.clickedPad3 = true
-		console.log("clicked pad 3")
-
 		if ($scope.clickedPad3===true){
 				$scope.pad3BeingPlayed = true
 				snare.play()
@@ -163,8 +267,6 @@ angular.module('App')
 	}
 	$scope.clickPad4 = function(){
 		$scope.clickedPad4 = true
-		console.log("clicked pad 4")
-
 		if ($scope.clickedPad4===true){
 				$scope.pad4BeingPlayed = true
 				aux.play()
@@ -174,8 +276,52 @@ angular.module('App')
 											drum        : $scope.currentKit
 						})
 	}
+	$scope.clickPad5 = function(){
+		$scope.clickedPad5 = true
+		if ($scope.clickedPad5===true){
+				$scope.pad5BeingPlayed = true
+				pad5.play()
+			}
+		socket.emit('notebeingtouched', { 	note		: 5, 
+											destination : $routeParams.jamDestination, 
+											drum        : $scope.currentKit
+						})
+	}
+	$scope.clickPad6 = function(){
+		$scope.clickedPad6 = true
+		if ($scope.clickedPad6===true){
+				$scope.pad6BeingPlayed = true
+				pad6.play()
+			}
+		socket.emit('notebeingtouched', { 	note		: 6, 
+											destination : $routeParams.jamDestination, 
+											drum        : $scope.currentKit
+						})
+	}
+	$scope.clickPad7 = function(){
+		$scope.clickedPad7 = true
+		if ($scope.clickedPad7===true){
+				$scope.pad7BeingPlayed = true
+				pad7.play()
+			}
+		socket.emit('notebeingtouched', { 	note		: 7, 
+											destination : $routeParams.jamDestination, 
+											drum        : $scope.currentKit
+						})
+	}
+	$scope.clickPad8 = function(){
+		$scope.clickedPad8 = true
+		if ($scope.clickedPad8===true){
+				$scope.pad8BeingPlayed = true
+				pad8.play()
+			}
+		socket.emit('notebeingtouched', { 	note		: 8, 
+											destination : $routeParams.jamDestination, 
+											drum        : $scope.currentKit
+						})
+	}
 
-
+//Note being pressed on the keyboard ------------------------------------------
 
 		$scope.notePlayed = function(event){
 			console.log(event.which)
@@ -198,17 +344,37 @@ angular.module('App')
 				$scope.pad4BeingPlayed = true
 				aux.play()
 			}
+			if (event.which === 102){
+				$scope.pad5BeingPlayed = true
+				pad5.play()
+			}
+			if (event.which === 103){
+				$scope.pad6BeingPlayed = true
+				pad6.play()
+			}
+			if (event.which === 104){
+				$scope.pad7BeingPlayed = true
+				pad7.play()
+			}
+			if (event.which === 106){
+				$scope.pad8BeingPlayed = true
+				pad8.play()
+			}
 
-		socket.emit('notebeingplayed', { 	notes		: $scope.inputs, 
-											destination : $routeParams.jamDestination, 
-											drum        : $scope.currentKit
-										})
+		socket.emit('keyPress', { 	notes		: $scope.inputs, 
+									destination : $routeParams.jamDestination, 
+									drum        : $scope.currentKit
+								})
 		}
-
+//globally defining the pads ------------------------------------------
 	var hat = new Wad({source : '/drums/' + $scope.currentKit + '/1.wav'})
 	var kick = new Wad({source : '/drums/' + $scope.currentKit + '/2.wav'})
 	var snare = new Wad({source : '/drums/' + $scope.currentKit + '/3.wav'})
 	var aux = new Wad({source : '/drums/' + $scope.currentKit + '/4.wav'})
+	var pad5 = new Wad({source : '/drums/' + $scope.currentKit + '/5.wav'})
+	var pad6 = new Wad({source : '/drums/' + $scope.currentKit + '/6.wav'})
+	var pad7 = new Wad({source : '/drums/' + $scope.currentKit + '/7.wav'})
+	var pad8 = new Wad({source : '/drums/' + $scope.currentKit + '/8.wav'})
 
 	console.log(hat)
 	console.log(kick)
@@ -218,7 +384,7 @@ angular.module('App')
 	
 	
 //handling incoming drum machine "notes"------------------------------------
-		socket.on('music', function(data){
+		socket.on('keyPressEmission', function(data){
 			console.log(data)
 			console.log(data.notes)
 			console.log(data.drum)
@@ -239,8 +405,25 @@ angular.module('App')
 				var eaux = new Wad({source : '/drums/' + data.drum + '/4.wav'})
 				eaux.play()
 			}
+			if (data.notes === 102){
+				var epad5 = new Wad({source : '/drums/' + data.drum + '/5.wav'})
+				epad5.play()
+			}
+			if (data.notes === 103){
+				var epad6 = new Wad({source : '/drums/' + data.drum + '/6.wav'})
+				epad6.play()
+			}
+			if (data.notes === 104){
+				var epad7 = new Wad({source : '/drums/' + data.drum+ '/7.wav'})
+				epad7.play()
+			}
+			if (data.notes === 106){
+				var epad8 = new Wad({source : '/drums/' + data.drum + '/8.wav'})
+				epad8.play()
+			}
 		})
 
+//these are coming in off of the server on clicks and smartphone touches
 		socket.on('touchedNotes', function(data){
 			console.log(data)
 			console.log(data.notes)
@@ -257,10 +440,25 @@ angular.module('App')
 				var esnare = new Wad({source : '/drums/' + data.drum + '/3.wav'})
 				esnare.play()
 			}
-
 			if (data.note === 4){
 				var eaux = new Wad({source : '/drums/' + data.drum + '/4.wav'})
 				eaux.play()
+			}
+			if (data.note === 5){
+				var epad5 = new Wad({source : '/drums/' + data.drum + '/5.wav'})
+				epad5.play()
+			}
+			if (data.note === 6){
+				var epad6 = new new Wad({source : '/drums/' + data.drum + '/6.wav'})
+				epad6.play()
+			}
+			if (data.note === 7){
+				var epad7 = new Wad({source : '/drums/' + data.drum + '/7.wav'})
+				epad7.play()
+			}
+			if (data.note === 8){
+				var epad8 = new Wad({source : '/drums/' + data.drum + '/8.wav'})
+				epad8.play()
 			}
 		})
 
@@ -270,26 +468,6 @@ angular.module('App')
 		// })
 
 
-//midi input (from server) handler and emmission-----------------------
-		// socket.on('midi', function(data){
-		// 	console.log(data[1])
-		// 	if ( data[0] === 144 ) {
-		// 		console.log("success!")
-		// 		// Wad.midiInstrument = new Wad({source : 'sawtooth'})
-		// 	 if ( data[2] === 0 ) { // noteOn velocity of 0 means this is actually a noteOff message
-  //               console.log('|| stopping note: ', Wad.pitchesArray[data[1]-12]);
-  //               Wad.midiInstrument.stop(Wad.pitchesArray[data[1]-12]);
-  //           }
-		// 	else if ( data[1] > 0 ) {
-		// 		Wad.midiInstrument = new Wad({
-		// 			source : 'triangle',
-		// 			volume  : .4
-		// 	})
-  //           console.log('> playing note: ', Wad.pitchesArray[data[1]-12]);
-  //           Wad.midiInstrument.play({pitch : Wad.pitchesArray[data[1]-12], label : Wad.pitchesArray[data[1]-12], callback : function(that){
-  //           }})
-  //   		}}
-		// })
 
 //click handler for keyboard-----------------------
 		// Wad.midiInstrument = new Wad({

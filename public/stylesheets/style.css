@@ -1,106 +1,115 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+ font-family: 'Cutive Mono', sans-serif;
+ background-color: #ecf0f1;
 }
 
 a {
   color: #00B7FF;
 }
-
-
 /*****************LANDING PAGE************************/
 
-/* .landingPage {
-    background: purple;
-    margin-top: 20%;
-
-} */
-
-/*.landingPage h1{
-    color:white;
-    font-family: 'VT323';
-    font-size: 64px;
-}*/
+.landingPage {
+  background: white;
+} 
 
 
-/* .landingPage {
-        background: purple;
-    margin-top: 20%;
-
-} */
-
+.main_input{
+  text-align: center;
+  font-size: 30px;
+  height: 50px;
+}
 .nav_bar a{
   text-decoration: none;
 }
 
 .nav_bar h1{
-  color: black;
+  color: #ecf0f1;
+  font-size: 150px;
+  font-family: 'Amatic SC', sans-serif;
+  margin-bottom: -11px;
+  background-color: #6FC5C2;
+  padding-top: 15%;
+  margin-top: -20px;
+  text-align: center;
+}
+
+.nav_bar h1:hover{
+  color:darkgrey;
 }
 
 .info {
-    color: #2EE82E;
-    font-family: 'VT323';
-    font-size: 25px;
-    background-color: black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    padding: 10px
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  letter-spacing: -2px
+}
+
+.info h1 {
+ font-family: 'Cutive mono', sans-serif;
+ margin-top: -2px;
+ font-size: 35px;
 }
 
 .getStarted {
-        margin-bottom: 20px;
-        font-family: 'VT323';
-        font-size: 30px;
+  margin-bottom: 20px;
+  font-family: 'VT323';
+  font-size: 30px;
 }
 
 .bit {
-    font-family: 'VT323';
-    font-size:25px;
-    text-align: center;
+  font-size:25px;
+  text-align: center;
 }
 
 .bit2{
-      font-family: 'VT323';
-      text-align: left;
-      margin-top: -10px;
+  font-family: 'Cutive Mono', sans-serif;
+  text-align: center;
+  margin-top: -14px;
+  margin-bottom: 390px;
+  background-color: #ecf0f1;
+  color: #6FC5C2;
+  width: 438px;
+  padding-left: 2px;
+  margin-left: 22px;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 20px;
+  margin: auto;
 }
 
-.nav_bar{
-  border-bottom: solid thin black
-}
 
+.form-group {
+ margin-bottom: 1%; 
+ margin-top: -10px;
+}
 
 .loginPage input {
   height:50px;
 }
 
 .where {
-    color:darkgrey;
-    font-size: 25px;
-/*     font-family: 'VT323'*/
+  color:darkgrey;
+  font-size: 25px;
 }
 
 /*****************"WORK STATION"******************/
-
-
 .synth {
-    background-color: blueviolet;
-    height: 310px;
-    width: 690px;
-    padding-top: 106px;
-    padding-left: 12px;
-    margin: auto;
-    margin-bottom: 20px;
-    margin-top: -147px;
+  background-color: blueviolet;
+  height: 310px;
+  width: 690px;
+  padding-top: 106px;
+  padding-left: 12px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: -147px;
 }
 
 
 .jamming {
-    background-color: darkgrey;
-    border-radius:20px;
-    min-width: 500px;
-   margin-top: 10px;
+  background-color: darkgrey;
+  border-radius:0px 0px 20px 20px;
+  min-width: 500px;
+
 }
 
 .jamSpaceInfo {
@@ -140,196 +149,252 @@ a {
     margin-right: -20px;
     position: absolute;
     cursor:pointer;
-}*/
+    }*/
+
 
 /*****************DRUM MACHINE************************/
 .mpc {
-      background-color: darkblue;
-    border: solid black;
-    border-top: none;
-    border-right: none;
-    height: 300px;
-    border-radius: 20px;
-    width: 450px;
-    margin: auto;
-    margin-bottom: 20px;
-    padding-top: 20px;
+  background-color: #9b59b6;
+  border: solid black;
+  border-top: none;
+  border-right: none;
+  height: 300px;
+  border-radius: 20px;
+  width: 450px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding-top: 20px;
 }
 
 .drumPad {
-    background-color: seashell;
-    height: 75px;
-    width: 75px;
-    border-radius: 10px;
-    margin: 12px;
-    margin-top: 30px;
-    display: inline-block;
-    border: solid thin black;
-    border-top: none;
-    border-right: none;
-    cursor: pointer;
+  background-color: seashell;
+  height: 75px;
+  width: 75px;
+  border-radius: 10px;
+  margin: 12px;
+  margin-top: 30px;
+  display: inline-block;
+  border: solid thin black;
+  border-top: none;
+  border-right: none;
+  cursor: pointer;
 }
 
-/*.drumPad:active:hover {
-    opacity:.8;
-}*/
 
 .drumPadPlayed {
-    opacity: .8;
-    background-color: red;
+  opacity: .8;
+  background-color: red;
 }
 
 .drumPad p{
-    text-align:center;
+  text-align:center;
 }
 
 
 .setType {
-     background-color: black;
-     height: 30px;
-     width: 200px;
-     /* text-align: center; */
-     margin: auto;
-     margin-bottom: -45px;
-     font-family: 'VT323';
-     font-size: 28px;
-     color:#0BCE0B;
+ background-color: black;
+ height: 30px;
+ width: 200px;
+ margin: auto;
+ margin-bottom: -45px;
+ font-family: 'VT323';
+ font-size: 28px;
+ color:#40FD37;
 }
 
 .synthsetType {
-    background-color: black;
-    height: 30px;
-    width: 305px;
-    margin: auto;
-    margin-bottom: -85px;
-    font-family: 'VT323';
-    font-size: 28px;
-    color: #0BCE0B;
-    position: relative;
+  background-color: black;
+  height: 30px;
+  width: 305px;
+  margin: auto;
+  margin-bottom: -85px;
+  font-family: 'VT323';
+  font-size: 28px;
+  color: #0BCE0B;
+  position: relative;
 }
 
 .syntharrow-left{
-      width: 0px;
-      height: 0px;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid;
-      margin-left: 398px;
-      cursor: pointer;
-      margin-top: -20px;
-      position: relative;
-      margin-top: 20px;
-      margin-bottom: -24px;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid;
+  margin-left: 398px;
+  cursor: pointer;
+  margin-top: -20px;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: -24px;
 }
 
 .syntharrow-right{
-       width: 0px;
-       height: 0px;
-       border-top: 10px solid transparent;
-       border-bottom: 10px solid transparent;
-       border-left: 10px solid;
-       margin-left: 733px;
-       margin-top: 60px;
-       cursor: pointer;
-       position: relative;
-       margin-bottom: -30px;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid;
+  margin-left: 733px;
+  margin-top: 60px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: -30px;
 }
 
-
-
-
 .arrow-left {
-      width: 0px;
-      height: 0px;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid;
-      margin-left: 100px;
-      cursor: pointer;
-      margin-top: -20px;
-      margin-top: 20px;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid;
+  margin-left: 100px;
+  cursor: pointer;
+  margin-top: -20px;
+  margin-top: 20px;
 }
 
 .arrow-right {
-          width: 0px;
-          height: 0px;
-          border-top: 10px solid transparent;
-          border-bottom: 10px solid transparent;
-          border-left: 10px solid;
-          margin-left: 331px;
-          margin-top: -20px;
-          cursor: pointer;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid;
+  margin-left: 331px;
+  margin-top: -20px;
+  cursor: pointer;
 }
 
-.volume {
-            margin-left: 470px;
-            margin-top: 78px;
-            position: relative;
-            margin-bottom: 49px;
+/*.volume {
+  margin-left: 470px;
+  margin-top: 78px;
+  position: relative;
+  margin-bottom: 49px;
+}*/
+
+.midiWaves {
+       /* display: inline-block; */
+       /*  margin-top: -98px;
+      margin-left: 440px;
+      margin-bottom: 10px;*/
 }
 
+.midiVolume {
+   display: inline-block;
+  /* margin-left: 233px;*/
+}
 
+.midiParameters {
+  border:black dashed;
+  width: 260px;
+  margin: auto;
+  margin-bottom: 1%
+}
+
+.currentDevices {
+  display: inline-block;
+}
+
+.typeOfWave:hover {
+  background-color: yellow;
+  cursor:pointer;
+}
+
+.armButton {
+  width:260px;
+  border-radius: 15px;
+  background-color: white;
+  letter-spacing: -2px;
+}
 @media screen and (max-width: 550px) {
 
-.mpc {
-   background-color: red;
-    border: solid black;
-    border-top: none;
-    border-right: none;
-    height: 525px;
-    border-radius: 20px;
-    width: 250px;
-    margin: auto;
-    margin-bottom: 20px;
-    padding-top: 20px;
-}
+  .main_input{
+    text-align: center;
+    font-size: 15px;
+    height: 25px;
+  }
 
-.arrow-left {
-      width: 0px;
-      height: 0px;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid;
-      margin-left: 9px;
-      cursor: pointer;
-      margin-top: -20px;
-      margin-top: 20px;
+  .mpc {
+   background-color: #f39c12;
+   border: solid black;
+   border-top: none;
+   border-right: none;
+   height: 525px;
+   border-radius: 20px;
+   width: 250px;
+   margin: auto;
+   margin-bottom: 20px;
+   padding-top: 20px;
+ }
+
+ .arrow-left {
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid;
+  margin-left: 9px;
+  cursor: pointer;
+  margin-top: -20px;
+  margin-top: 20px;
 }
 
 .arrow-right {
-          width: 0px;
-          height: 0px;
-          border-top: 10px solid transparent;
-          border-bottom: 10px solid transparent;
-          border-left: 10px solid;
-          margin-left: 230px;
-          margin-top: -20px;
-          cursor: pointer;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid;
+  margin-left: 230px;
+  margin-top: -20px;
+  cursor: pointer;
 }
-
 
 .jamming {
-    background-color: darkgrey;
-    border-radius:20px;
-    min-width: 300px;
-   margin-top: 10px;
-  /* margin-left: -40px;*/
-
+  min-width: 300px;
 }
 
-
+.nav_bar h1 {
+  font-size: 93px;
+  padding-bottom: 10px;
 }
 
+.info {
+  font-size: 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: -22px;
+  letter-spacing: -2px;}
+
+.footer{
+  font-size: 10px;
+}
+
+.bit2{
+  width: 290px;
+  font-size: 13px;
+}
+
+.info h1 {
+  font-size: 21px;
+  margin-top: -12px;
+  margin-bottom: 2px;
+  letter-spacing: -2px;}
+}
+
+.form-group {
+  margin-top: 5px;
+}
 
 @media screen and (max-width: 450px) {
 
-.jamming {
-    background-color: darkgrey;
-    border-radius:20px;
-    min-width: 280px;
-   margin-top: 10px;
-   margin-left: -30px;
+    .jamming {
+      min-width: 280px;
+    }
 
-}
+    .form-group { 
+     margin-top: 5px;
+   }
 
-}
+ }
+

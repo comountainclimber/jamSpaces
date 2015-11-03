@@ -6,24 +6,69 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet", href="/stylesheets/style.css"><link rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet", href="/stylesheets/style.css">
 	<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js" type="text/javascript"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
-			<div class = ".col-xs-12 nav_bar">
+			<div class = ".col-sm-2 nav_bar">
+			</div>
+			<div class = ".col-sm-8 nav_bar">
 				<a href="/#/"><h1> jamSpace.io </h1></a>
 				<h5 class="bit2"> a collaborative web audio experiment</h5>
 			</div>
+			<div class = ".col-sm-2 nav_bar">
+			</div>
+		</div>
+		
+		
+	
+	<div ng-view>
 	</div>
 
+		<div class="row">
+			<div class = "col-sm-10">
+				<div class ="footer">
+				&copy; 2015, designed by <a href="mailto:mlasky46@gmail.com">Maxwell Lasky</a> 
+			<!-- 		<a class="btn btn-social-icon btn-twitter">
+   					<i class="fa fa-twitter"></i>
+   					<a class="btn btn-social-icon btn-facebook">
+   					<i class="fa fa-facebook"></i>
+   					<a class="btn btn-social-icon btn-github">
+   					<i class="fa fa-github"></i> -->
+				</div>
+			</div>
+			<div class = "col-sm-1">
+			</div>
+			<div class = "col-sm-1"></div>
+		</div>
+		
 
+		<div class="row">
+		<div class = "col-sm-10">
+		<!-- 	<div class ="footer"> -->
+					<a class="btn btn-social-icon btn-twitter">
+   					<i class="fa fa-twitter"></i>
+   					<a class="btn btn-social-icon btn-facebook">
+   					<i class="fa fa-facebook"></i>
+   					<a class="btn btn-social-icon btn-github">
+   					<i class="fa fa-github"></i>
+			</div>
+		</div>
+		<div class = "col-sm-1">
+		</div>
+		<div class = "col-sm-1"></div>
+		</div>
+		</div>
 
-	<div ng-view>
 	</div>
 <script type="text/javascript" src="../javascripts/main.js"></script>
 <script type="text/javascript" src="../javascripts/wad.js"></script>

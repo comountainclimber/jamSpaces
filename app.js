@@ -47,9 +47,9 @@ socketServer.on('connection', function(socket) {
 		socketServer.to(destination).emit('alertMessage', destination)
 	})
 
-	socket.on('notebeingplayed', function(data){
+	socket.on('keyPress', function(data){
 		console.log(data)
-		socketServer.to(data.destination).emit('music', data)
+		socketServer.broadcast.to(data.destination).emit('keyPressEmission', data)
 	})
 
 	socket.on('notebeingtouched', function(data){
@@ -59,7 +59,7 @@ socketServer.on('connection', function(socket) {
 
 	socket.on('midiData', function(data){
 		console.log(data)
-		socketServer.to(data.destination).emit('midi', data.midiData)
+		socketServer.to(data.destination).emit('midi', data)
 	})
 
 	socket.on('noteBeingClicked', function(data){

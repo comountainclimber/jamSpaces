@@ -34,11 +34,52 @@
                 </div>
             </div>
         </div> -->
+        <div ng-show="revealMidiController" >
+            <div class = "row">
+                <div class="col-sm-12 text-center">
+                    <button ng-click="armMidi()" class="armButton"> click to reveal/hide midi settings and also to broadcast what your playing to the universe</button>
+                    <div ng-show="revealParams" class="midiParameters">
 
-    <!--     <div class = "row">
-            <div class="col-xs-12">
-                <button ng-click="armMidi()"> click to play with midi </button>
-            </div> -->
+                        <div class="currentDevices">
+                            Currently conneted devices:
+                            <div ng-repeat="object in connectedMidiDevices">
+                                {{object.name}}
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                        <div class = "midiDelay">
+                            DELAY TIME:
+                            <input class="volume" type=range min=0 max=3 value=10 step=.1 ng-model="midiParams.delay">
+                            <div class="delay_param">
+                                {{midiParams.delay}}
+                            </div>
+                        </div>
+
+                        <div class ="midiVolume">
+                            VOLUME:
+                            <input class="volume" type=range min=0 max=1 value=10 step=.1 ng-model="midiParams.volume">
+                            <div class = "volume_param">
+                                {{midiParams.volume}}
+                            </div>
+                        </div>
+
+
+                        <div class= "midiWaves"> 
+                            WAVE TYPE:
+                            <div ng-repeat="object in waveTypes track by $index" class="typeOfWave" ng-click="selectWave($index)">
+                                {{object.type}}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
 <!-- 
         <div class = "row">
             <div class = "col-xs-12 text-center">
@@ -123,13 +164,13 @@
                     </div>
                     <div class = "drumPad" ng-class={"drumPadPlayed":pad4BeingPlayed} ng-mousedown="clickPad4()" ng-mouseup="releasePad()">
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad5BeingPlayed} ng-mousedown="clickPad5()" ng-mouseup="releasePad()">
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad6BeingPlayed} ng-mousedown="clickPad6()" ng-mouseup="releasePad()">
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad7BeingPlayed} ng-mousedown="clickPad7()" ng-mouseup="releasePad()">
                     </div>
-                    <div class = "drumPad">
+                    <div class = "drumPad" ng-class={"drumPadPlayed":pad8BeingPlayed} ng-mousedown="clickPad8()" ng-mouseup="releasePad()">
                     </div>
                 </div>
             </div>

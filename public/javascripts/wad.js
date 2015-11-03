@@ -1308,11 +1308,11 @@ grab it from the defaultImpulse URL **/
         if ( event.data[0] === 144 ) { // 144 means the midi message has note data
             // console.log('note')
             if ( event.data[2] === 0 ) { // noteOn velocity of 0 means this is actually a noteOff message
-                console.log('|| stopping note: ', Wad.pitchesArray[event.data[1]-12]);
+                // console.log('|| stopping note: ', Wad.pitchesArray[event.data[1]-12]);
                 Wad.midiInstrument.stop(Wad.pitchesArray[event.data[1]-12]);
             }
             else if ( event.data[2] > 0 ) {
-                console.log('> playing note: ', Wad.pitchesArray[event.data[1]-12]);
+                // console.log('> playing note: ', Wad.pitchesArray[event.data[1]-12]);
                 Wad.midiInstrument.play({pitch : Wad.pitchesArray[event.data[1]-12], label : Wad.pitchesArray[event.data[1]-12], callback : function(that){
                 }})
             }
@@ -1339,7 +1339,7 @@ grab it from the defaultImpulse URL **/
             Wad.midiInputs.push(o.value)
         }
         // Wad.midiInputs = [m.inputs.values().next().value];   // inputs = array of MIDIPorts
-        console.log('MIDI inputs: ', Wad.midiInputs)
+        // console.log('MIDI inputs: ', Wad.midiInputs)
         // var outputs = m.outputs(); // outputs = array of MIDIPorts
         for ( var i = 0; i < Wad.midiInputs.length; i++ ) {
             Wad.midiInputs[i].onmidimessage = midiMap; // onmidimessage( event ), event.data & event.receivedTime are populated
