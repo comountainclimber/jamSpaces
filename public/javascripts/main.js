@@ -193,7 +193,6 @@ if (Wad.midiInputs[0]) {
 	{kit: "glock"},
 	{kit: "junk"},
 	{kit: "kit1"},
-	{kit: "kit2"}
 	]
 
 
