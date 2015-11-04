@@ -44,32 +44,66 @@ angular.module('App')
 
 
 $scope.waveTypes = [
-	{type: "sine"},
-	{type: "triangle"},
-	{type: "square"},
-	{type: "sawtooth"}
+	{type: "sine",
+	 selected: false
+	},
+	{type: "triangle",
+	 selected: true
+	},
+	{type: "square",
+	selected: false
+	},
+	{type: "sawtooth",
+	selected: false
+	}
 ]
 
 $scope.midiParams = {
 	delay: .8,
-	volume: .8
+	volume: .7,
+	filterFrequency: 900
 }
 
 
 //midi output handler and emmission-----------------------
 
 	$scope.selectedWaveType = $scope.waveTypes[1].type
+
 $scope.selectWave = function(event){
+	// $scope.waveTypes[event].selected = true
+	// console.log($scope.waveTypes[event])
+	for (var i = 0; i<$scope.waveTypes.length ; i++) {
+		$scope.waveTypes[i].selected = false
+	};
+
+	$scope.waveTypes[event].selected = true
+
 	console.log($scope.waveTypes[event].type)
 	$scope.selectedWaveType = $scope.waveTypes[event].type
 	console.log($scope.selectedWaveType)
-	Wad.midiInstrument = new Wad({source : $scope.selectedWaveType,
-							filter  : {frequency : 900},
-    						delay   : {delayTime : $scope.midiParams.delay}
-							})
+	Wad.midiInstrument.source = $scope.selectedWaveType
+}
+							
+			
+// console.log(Wad.midiInputs)
+$scope.changeVolume = function() {
+	console.log("Changing volume")
+	Wad.midiInstrument.defaultVolume = parseFloat($scope.midiParams.volume)
+	// console.log(Wad.midiInstrument.defaultvolume)
 }
 
-// console.log(Wad.midiInputs)
+
+$scope.changeDelay = function() {
+	Wad.midiInstrument.delay.delayTime = $scope.midiParams.delay
+}
+
+$scope.changeFilterFrequency = function() {
+	Wad.midiInstrument.filter[0].frequency = parseInt($scope.midiParams.filterFrequency)
+	console.log(Wad.midiInstrument.filter[0].frequency)
+}
+
+
+
 
 if (Wad.midiInputs[0]) {
 	$scope.revealMidiController = true
@@ -91,7 +125,10 @@ if (Wad.midiInputs[0]) {
 					// console.log(event.data)
 					socket.emit('midiData', {  midiData: event.data, 
 											destination:$routeParams.jamDestination,
-											waveForm   : $scope.selectedWaveType
+											waveForm   : $scope.selectedWaveType,
+											volume: parseFloat($scope.midiParams.volume),
+											filterFrequency: parseInt($scope.midiParams.filterFrequency),
+											delay: $scope.midiParams.delay,
 											})	
 				}
 			}
@@ -106,8 +143,15 @@ if (Wad.midiInputs[0]) {
 
 
 			Wad.midiInstrument.source = data.waveForm
-			$scope.selectedWaveType = data.waveForm
-			
+			// $scope.selectedWaveType = data.waveForm
+
+
+			Wad.midiInstrument.defaultVolume = data.volume
+
+			Wad.midiInstrument.filter[0].frequency = data.filterFrequency
+
+			Wad.midiInstrument.delay.delayTime = data.delay
+
 			// $scope.$apply(function(){ $scope.selectedWaveType = data.waveForm })
 			// console.log($scope.selectedWaveType)
 
@@ -135,9 +179,11 @@ if (Wad.midiInputs[0]) {
         })
 
 
-  Wad.midiInstrument = new Wad({source : $scope.selectedWaveType,
-							filter  : {frequency : 900},
-    						delay   : {delayTime : $scope.midiParams.delay}
+  Wad.midiInstrument = new Wad({
+  								source : $scope.selectedWaveType,
+							   filter  : {frequency : $scope.midiParams.filterFrequency},
+    						   delay   : {delayTime : $scope.midiParams.delay},
+    						   volume  : $scope.midiParams.volume,
 							})
 
 //the drum machine------------------------------------
@@ -210,7 +256,7 @@ if (Wad.midiInputs[0]) {
 		$scope.pad2BeingPlayed = false
 		$scope.pad3BeingPlayed = false
 		$scope.pad4BeingPlayed = false
-		$scope.padf5BeingPlayed = false
+		$scope.pad5BeingPlayed = false
 		$scope.pad6BeingPlayed = false
 		$scope.pad7BeingPlayed = false
 		$scope.pad8BeingPlayed = false

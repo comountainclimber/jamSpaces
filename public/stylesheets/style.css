@@ -299,6 +299,10 @@ a {
   cursor:pointer;
 }
 
+.typeOfWaveSelected {
+  background-color: yellow;
+}
+
 .armButton {
   width:260px;
   border-radius: 15px;

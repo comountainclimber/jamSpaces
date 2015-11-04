@@ -49,7 +49,7 @@ socketServer.on('connection', function(socket) {
 
 	socket.on('keyPress', function(data){
 		console.log(data)
-		socketServer.broadcast.to(data.destination).emit('keyPressEmission', data)
+		socketServer.to(data.destination).emit('keyPressEmission', data)
 	})
 
 	socket.on('notebeingtouched', function(data){
