@@ -58,7 +58,7 @@ socketServer.on('connection', function(socket) {
 	})
 
 	socket.on('midiData', function(data){
-		// console.log(data)
+		console.log(data)
 		socketServer.to(data.destination).emit('midi', data)
 	})
 
