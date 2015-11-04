@@ -189,8 +189,8 @@ if (Wad.midiInputs[0]) {
 //the drum machine------------------------------------
 
 	$scope.drumSets = [
-	{kit: "tonal"},
-	{kit: "basic8bit"},
+	{kit: "kalimba"},
+	{kit: "glock"},
 	{kit: "junk"},
 	{kit: "kit1"},
 	{kit: "kit2"}
