@@ -39,7 +39,7 @@ angular.module('App')
 		socket.emit('destination', $routeParams.jamDestination)
 
 		socket.on('alertMessage', function(data){
-			console.log("user connected to " + data + " jamSpace")
+			// console.log("user connected to " + data + " jamSpace")
 		})
 
 
@@ -78,9 +78,9 @@ $scope.selectWave = function(event){
 
 	$scope.waveTypes[event].selected = true
 
-	console.log($scope.waveTypes[event].type)
+	// console.log($scope.waveTypes[event].type)
 	$scope.selectedWaveType = $scope.waveTypes[event].type
-	console.log($scope.selectedWaveType)
+	// console.log($scope.selectedWaveType)
 	Wad.midiInstrument.source = $scope.selectedWaveType
 }
 							
@@ -99,7 +99,7 @@ $scope.changeDelay = function() {
 
 $scope.changeFilterFrequency = function() {
 	Wad.midiInstrument.filter[0].frequency = parseInt($scope.midiParams.filterFrequency)
-	console.log(Wad.midiInstrument.filter[0].frequency)
+	// console.log(Wad.midiInstrument.filter[0].frequency)
 }
 
 
@@ -139,7 +139,7 @@ if (Wad.midiInputs[0]) {
 
 // midi input (from server) handler and emmission-----------------------
 		socket.on('midi', function(data){
-			console.log(data)
+			// console.log(data)
 
 
 			Wad.midiInstrument.source = data.waveForm
@@ -204,8 +204,8 @@ if (Wad.midiInputs[0]) {
 	$scope.changeKitUp = function (){
 		// console.log("changing the drumset")
 		(x++)
-		console.log(x)
-		console.log($scope.drumSets[x].kit)
+		// console.log(x)
+		// console.log($scope.drumSets[x].kit)
 		$scope.currentKit = $scope.drumSets[x].kit
 	
 	 hat = new Wad({source : '/drums/' + $scope.currentKit + '/1.wav'})
@@ -217,9 +217,9 @@ if (Wad.midiInputs[0]) {
 	pad7 = new Wad({source : '/drums/' + $scope.currentKit + '/7.wav'})
 	pad8 = new Wad({source : '/drums/' + $scope.currentKit + '/8.wav'})
 	
-	console.log(hat)
-	console.log(kick)
-	console.log(aux)
+	// console.log(hat)
+	// console.log(kick)
+	// console.log(aux)
 	}
 
 	$scope.changeKitDown = function (){
@@ -370,7 +370,7 @@ if (Wad.midiInputs[0]) {
 //Note being pressed on the keyboard ------------------------------------------
 
 		$scope.notePlayed = function(event){
-			console.log(event.which)
+			// console.log(event.which)
 			$scope.inputs = event.which
 
 			if (event.which === 114){
@@ -422,18 +422,18 @@ if (Wad.midiInputs[0]) {
 	var pad7 = new Wad({source : '/drums/' + $scope.currentKit + '/7.wav'})
 	var pad8 = new Wad({source : '/drums/' + $scope.currentKit + '/8.wav'})
 
-	console.log(hat)
-	console.log(kick)
-	console.log(aux)
+	// console.log(hat)
+	// console.log(kick)
+	// console.log(aux)
 	// console.log('/drums/' + $scope.drumSets[x].kit + '/3.wav')
 
 	
 	
 //handling incoming drum machine "notes"------------------------------------
 		socket.on('keyPressEmission', function(data){
-			console.log(data)
-			console.log(data.notes)
-			console.log(data.drum)
+			// console.log(data)
+			// console.log(data.notes)
+			// console.log(data.drum)
 			if (data.notes === 116){
 				var ehat = new Wad({source : '/drums/' + data.drum + '/1.wav'})
 				ehat.play()
@@ -471,9 +471,9 @@ if (Wad.midiInputs[0]) {
 
 //these are coming in off of the server on clicks and smartphone touches
 		socket.on('touchedNotes', function(data){
-			console.log(data)
-			console.log(data.notes)
-			console.log(data.drum)
+			// console.log(data)
+			// console.log(data.notes)
+			// console.log(data.drum)
 			if (data.note === 1){
 				var ehat = new Wad({source : '/drums/' + data.drum + '/1.wav'})
 				ehat.play()

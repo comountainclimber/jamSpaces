@@ -37,33 +37,33 @@ var socketServer = io(app.server)
 // var io = socketio.listen(http);
 
 socketServer.on('connection', function(socket) {
-	console.log('a user has connected to jamSpace')
+	// console.log('a user has connected to jamSpace')
 
 	socket.on('destination', function(data){
 		var destination = data
-		console.log("user has entered " + data + " jamSpace")
+		// console.log("user has entered " + data + " jamSpace")
 		socket.join(data)
 
 		socketServer.to(destination).emit('alertMessage', destination)
 	})
 
 	socket.on('keyPress', function(data){
-		console.log(data)
+		// console.log(data)
 		socketServer.to(data.destination).emit('keyPressEmission', data)
 	})
 
 	socket.on('notebeingtouched', function(data){
-		console.log(data)
+		// console.log(data)
 		socketServer.to(data.destination).emit('touchedNotes', data)
 	})
 
 	socket.on('midiData', function(data){
-		console.log(data)
+		// console.log(data)
 		socketServer.to(data.destination).emit('midi', data)
 	})
 
 	socket.on('noteBeingClicked', function(data){
-		console.log(data.note)
+		// console.log(data.note)
 		socketServer.to(data.destination).emit('clickedNote', data.note)
 
 	})
