@@ -392,6 +392,11 @@ a {
 
 @media screen and (max-width: 450px) {
 
+.nav_bar h1 {
+  font-size: 75px;
+
+}
+
     .jamming {
       min-width: 280px;
     }
