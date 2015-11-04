@@ -38,7 +38,7 @@ var socketServer = io(app.server)
 
 socketServer.on('connection', function(socket) {
 	// console.log('a user has connected to jamSpace')
-
+	// console.log(socket.id, socketServer)
 	socket.on('destination', function(data){
 		var destination = data
 		// console.log("user has entered " + data + " jamSpace")
@@ -49,22 +49,27 @@ socketServer.on('connection', function(socket) {
 
 	socket.on('keyPress', function(data){
 		// console.log(data)
-		socketServer.to(data.destination).emit('keyPressEmission', data)
+		socket.broadcast.to(data.destination).emit('keyPressEmission', data)
 	})
 
 	socket.on('notebeingtouched', function(data){
 		// console.log(data)
-		socketServer.to(data.destination).emit('touchedNotes', data)
+		socket.broadcast.to(data.destination).emit('touchedNotes', data)
 	})
 
 	socket.on('midiData', function(data){
+<<<<<<< HEAD
 		// console.log(data)
 		socketServer.to(data.destination).emit('midi', data)
+=======
+		console.log(data)
+		socket.broadcast.to(data.destination).emit('midi', data)
+>>>>>>> d8e3d39518d1367bf401f0a1e8d7c85eedbb2265
 	})
 
 	socket.on('noteBeingClicked', function(data){
 		// console.log(data.note)
-		socketServer.to(data.destination).emit('clickedNote', data.note)
+		socket.broadcast.to(data.destination).emit('clickedNote', data.note)
 
 	})
 
