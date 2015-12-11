@@ -42,9 +42,7 @@ a {
   font-size: 20px;
   border-radius: 10px;
   padding: 10px;
-  /* letter-spacing: -2px
-; */
-    font-weight: 100;
+  font-weight: 100;
   font-family: sans-serif;
 }
 
@@ -109,19 +107,25 @@ a {
   margin-top: -147px;
 }
 
+.information{
+  margin-top: 10px;
+}
 
 .jamming {
   background-color: darkgrey;
   border-radius:0px 0px 20px 20px;
   min-width: 500px;
-
 }
 
 .jamSpaceInfo {
-font-family: 'Shadows Into Light';
+    font-family: 'Shadows Into Light';
     font-size: 34px;
     color: white;
-    padding: 2%;
+    padding: 2%;margin-top: -20px;
+}
+
+.help_info{
+  color: seashell;
 }
 
 /*****************KEYBOARD************************/
@@ -310,10 +314,11 @@ font-family: 'Shadows Into Light';
 }
 
 .armButton {
-  width:260px;
-  border-radius: 15px;
-  background-color: white;
-  letter-spacing: -2px;
+    width: 260px;
+    border-radius: 15px;
+    background-color: white;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
 }
 @media screen and (max-width: 550px) {
 

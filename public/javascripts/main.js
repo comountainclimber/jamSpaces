@@ -34,6 +34,11 @@ angular.module('App')
 	.controller('jamController', ['$scope', '$http','$routeParams', '$location', '$rootScope', function($scope, $http, $routeParams, $location, $rootScope){
 		
 		$scope.destination = $routeParams.jamDestination
+		$scope.helpInfo = false
+
+		$scope.revealHelpInfo = function(){
+			$scope.helpInfo = !$scope.helpInfo
+		}
 
 		var socket = io()
 		socket.emit('destination', $routeParams.jamDestination)
