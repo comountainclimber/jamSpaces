@@ -1,4 +1,4 @@
-angular.module('App', ['ngRoute'])
+angular.module('App', ['ngRoute', 'ngTouch',])
 
 angular.module('App')
 	.config(['$routeProvider', function($routeProvider){
