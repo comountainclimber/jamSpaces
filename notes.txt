@@ -1,1 +1,0 @@
-On desktop reveal a controller that allows the user to manipulate midi data
