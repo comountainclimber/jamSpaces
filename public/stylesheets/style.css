@@ -13,6 +13,7 @@ a {
 
 .landingPage {
   background: white;
+  border-radius: 0px 0px 20px 20px;
 } 
 
 
@@ -128,7 +129,7 @@ a {
 }
 
 .jamming {
-  background-color: darkgrey;
+  background-color: #D2D2D2;
   border-radius:0px 0px 20px 20px;
   min-width: 500px;
 }
@@ -136,7 +137,7 @@ a {
 .jamSpaceInfo {
     font-family: 'Shadows Into Light';
     font-size: 34px;
-    color: white;
+    color: black;
     padding: 2%;
     margin-top: -30px;
     margin-bottom: -5px;
