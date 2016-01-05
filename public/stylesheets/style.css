@@ -43,7 +43,13 @@ a {
 /*CSS mystery:*/
 .nav_bar{
   padding-right: 0px;
+  padding-left: 0px;
 }
+
+/*.jamming{
+  padding-right: 0px;
+  padding-left: 0px;
+}*/
 
 .info {
   font-size: 20px;
