@@ -7,6 +7,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+
 /*****************LANDING PAGE************************/
 
 .landingPage {
@@ -36,6 +38,11 @@ a {
 
 .nav_bar h1:hover{
   color:darkgrey;
+}
+
+/*CSS mystery:*/
+.nav_bar{
+  padding-right: 0px;
 }
 
 .info {
@@ -121,11 +128,16 @@ a {
     font-family: 'Shadows Into Light';
     font-size: 34px;
     color: white;
-    padding: 2%;margin-top: -20px;
+    padding: 2%;
+    margin-top: -30px;
+    margin-bottom: -5px;
 }
 
 .help_info{
   color: seashell;
+  margin-bottom: 17px;
+  margin-top: 0px;
+  letter-spacing: -1px;
 }
 
 /*****************KEYBOARD************************/
@@ -224,7 +236,7 @@ a {
   position: relative;
 }
 
-.syntharrow-left{
+/*.syntharrow-left{
   width: 0px;
   height: 0px;
   border-top: 10px solid transparent;
@@ -249,7 +261,7 @@ a {
   cursor: pointer;
   position: relative;
   margin-bottom: -30px;
-}
+}*/
 
 .arrow-left {
   width: 0px;
@@ -257,7 +269,7 @@ a {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid;
-  margin-left: 100px;
+  margin-left: 106px;
   cursor: pointer;
   margin-top: -20px;
   margin-top: 20px;
@@ -273,6 +285,14 @@ a {
   margin-top: -20px;
   cursor: pointer;
 }
+
+/*.arrow-left:hover{
+    color: #6FC5C2;
+  }
+
+.arrow-right:hover{
+    color: #6FC5C2;
+  }*/
 
 /*.volume {
   margin-left: 470px;
@@ -319,102 +339,114 @@ a {
     background-color: white;
     letter-spacing: -2px;
     margin-bottom: 10px;
+    /* margin-top: -61px; */
 }
 @media screen and (max-width: 550px) {
 
-  .main_input{
-    text-align: center;
-    font-size: 15px;
-    height: 25px;
+    .main_input{
+      text-align: center;
+      font-size: 20px;
+      height: 35px;
+      margin-top: 10px;
+      margin-bottom: 3px;
+    }
+
+    .mpc {
+     background-color: #f39c12;
+     border: solid black;
+     border-top: none;
+     border-right: none;
+     height: 525px;
+     border-radius: 20px;
+     width: 250px;
+     margin: auto;
+     margin-bottom: 20px;
+     padding-top: 20px;
+   }
+
+   .arrow-left {
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid;
+    margin-left: 9px;
+    cursor: pointer;
+    margin-top: -20px;
+    margin-top: 20px;
   }
 
-  .mpc {
-   background-color: #f39c12;
-   border: solid black;
-   border-top: none;
-   border-right: none;
-   height: 525px;
-   border-radius: 20px;
-   width: 250px;
-   margin: auto;
-   margin-bottom: 20px;
-   padding-top: 20px;
- }
+  .arrow-right {
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid;
+    margin-left: 230px;
+    margin-top: -21px;
+    cursor: pointer;
+  }
 
- .arrow-left {
-  width: 0px;
-  height: 0px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid;
-  margin-left: 9px;
-  cursor: pointer;
-  margin-top: -20px;
-  margin-top: 20px;
-}
+  .jamming {
+    min-width: 300px;
+  }
 
-.arrow-right {
-  width: 0px;
-  height: 0px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid;
-  margin-left: 230px;
-  margin-top: -20px;
-  cursor: pointer;
-}
+  .nav_bar h1 {
+    font-size: 113px;
+    padding-bottom: 10px;
+  }
 
-.jamming {
-  min-width: 300px;
-}
+  .info {
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: -22px;
+  }
 
-.nav_bar h1 {
-  font-size: 83px;
-  padding-bottom: 10px;
-}
+  .footer{
+    font-size: 15px;
+  }
 
-.info {
-  font-size: 14px;
-  margin-top: 10px;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: -22px;
-}
+  .bit2{
+    width: 290px;
+    font-size: 13px;
+  }
 
-.footer{
-  font-size: 10px;
-}
+  .info h1 {
+    font-size: 25px;
+    margin-top: -12px;
+    margin-bottom: 2px;
+    letter-spacing: -2px;
+  }
 
-.bit2{
-  width: 290px;
-  font-size: 13px;
-}
-
-.info h1 {
-  font-size: 21px;
-  margin-top: -12px;
-  margin-bottom: 2px;
-  letter-spacing: -2px;}
-}
-
-.form-group {
-  margin-top: 5px;
+  .form-group {
+    margin-top: 5px;
+  }
 }
 
 @media screen and (max-width: 450px) {
 
-.nav_bar h1 {
-  font-size: 75px;
+  .nav_bar h1 {
+    font-size: 80px;
+  }
 
-}
+  .jamming {
+    min-width: 280px;
+  }
 
-    .jamming {
-      min-width: 280px;
-    }
-
-    .form-group { 
+  .form-group { 
      margin-top: 5px;
    }
 
- }
+  .jamSpaceInfo {
+    margin-top: -33px;
+    margin-bottom: -4px;
+  }
+
+  .help_info {
+    /* width:300px; */
+  }
+
+}
 
