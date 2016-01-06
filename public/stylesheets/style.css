@@ -31,12 +31,16 @@ a {
 .nav_bar h1{
   color: #ecf0f1;
   font-size: 140px;
-  font-family: 'Amatic SC', sans-serif;
+  font-family: 'Just Me Again Down Here', sans-serif;
   margin-bottom: -11px;
   background-color: #6FC5C2;
-  padding-top: 15%;
+  /* padding-top: 15%; */
   margin-top: -20px;
   text-align: center;
+  letter-spacing: -5px;
+  /* word-wrap: normal; */
+  /* height: 100px; */
+  /* width: 300px; */
 }
 
 .nav_bar h1:hover{
@@ -45,8 +49,10 @@ a {
 
 /*CSS mystery:*/
 .nav_bar{
-  padding-right: 0px;
-  padding-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 10%;
+    background-color: #6FC5C2;
 }
 
 /*.jamming{
