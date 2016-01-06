@@ -14,15 +14,22 @@ a {
 .landingPage {
   background: white;
   border-radius: 0px 0px 20px 20px;
+/*  z-index: -100;*/
 } 
 
+.landingPageToBack{
+  background: white;
+/*  border-radius: 0px 0px 20px 20px;*/
+  z-index: -100;
+}
 
 .main_input{
   text-align: center;
   font-size: 30px;
   height: 50px;
-    margin-top: 10px;
-      margin-bottom: 3px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  z-index: 200;
 }
 .nav_bar a{
   text-decoration: none;
@@ -32,15 +39,18 @@ a {
   color: #ecf0f1;
   font-size: 140px;
   font-family: 'Just Me Again Down Here', sans-serif;
-  margin-bottom: -11px;
-  background-color: #6FC5C2;
+  margin-bottom: -28px;
+  /* background-color: #6FC5C2; */
   /* padding-top: 15%; */
   margin-top: -20px;
+  position: relative;
   text-align: center;
   letter-spacing: -5px;
   /* word-wrap: normal; */
   /* height: 100px; */
+  z-index: 100;
   /* width: 300px; */
+  text-shadow: 1px 1px 1px #000, -2px -2px 1px #000, -2px 2px 1px #000, 1px -2px 1px #000;
 }
 
 .nav_bar h1:hover{
@@ -54,6 +64,7 @@ a {
     padding-top: 10%;
     background-color: #6FC5C2;
 }
+/*end of CSS mystery*/
 
 /*.jamming{
   padding-right: 0px;
@@ -93,14 +104,16 @@ a {
   text-align: center;
   margin-top: -14px;
   margin-bottom: 390px;
-  background-color: #ecf0f1;
-  color: #6FC5C2;
+  background-color: rgba(255, 255, 0, 0.44);
+  color: black;
   width: 438px;
   padding-left: 2px;
   margin-left: 22px;
   border-radius: 10px 10px 0px 0px;
   font-size: 20px;
   margin: auto;
+  z-index: 200;
+  position: relative;
 }
 
 
@@ -426,8 +439,8 @@ a {
   }
 
   .bit2{
-    width: 290px;
-    font-size: 13px;
+    width: 317px;
+    font-size: 14px;
   }
 
   .info h1 {
@@ -445,7 +458,7 @@ a {
 @media screen and (max-width: 450px) {
 
   .nav_bar h1 {
-    font-size: 80px;
+    font-size: 100px;
   }
 
   .jamming {
@@ -464,6 +477,20 @@ a {
   .help_info {
     /* width:300px; */
   }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  .nav_bar h1 {
+    font-size: 90px;
+  }
+  
+   .bit2{
+    width: 290px;
+    font-size: 13px;
+  }
+
 
 }
 
