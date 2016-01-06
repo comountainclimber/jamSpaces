@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html ng-app="jamSpaces">
-<head>
-	<title>jamSpaces.com</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet", href="/stylesheets/style.css"><link rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet", href="/stylesheets/style.css">
-	<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class = "col-sm-12 text-center nav_bar">
-					<a href="/#/">
-						<h1> jamSpaces.com</h1>
+	<head>
+		<title>jamSpaces.com</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet", href="/stylesheets/style.css"><link rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet", href="/stylesheets/style.css">
+		<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class = "col-sm-12 text-center nav_bar">
+						<a href="/#/">
+							<h1> jamSpaces.com</h1>
+						</a>
+						<h5 class="bit2"> a collaborative web audio experiment</h5>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class = "col-sm-0">
+				</div>
+				<div class = "col-sm-12">
+					<div ng-view>
+					</div>
+				</div>
+				<div class = "col-sm-0">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class = "col-sm-4 text-center">
+					<div class ="footer">
+					&copy; 2016, designed by <a href="mailto:mlasky46@gmail.com">Maxwell Lasky</a> 
+					</div>
+				</div>
+				<div class = "col-sm-4">
+				</div>
+				<div class = "col-sm-4">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class = "col-sm-4 text-center">
+					<a class="btn btn-social-icon btn-twitter">
+						<i class="fa fa-twitter"></i>
 					</a>
-					<h5 class="bit2"> a collaborative web audio experiment</h5>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class = "col-sm-0">
-			</div>
-			<div class = "col-sm-12">
-				<div ng-view>
+					<a class="btn btn-social-icon btn-facebook">
+						<i class="fa fa-facebook"></i>
+					</a>
+					<a class="btn btn-social-icon btn-github" href="https://github.com/comountainclimber/jamSpaces" target="_blank">
+						<i class="fa fa-github"></i>
+					</a>
+				</div>
+				<div class = "col-sm-4">
+				</div>
+				<div class = "col-sm-4">
 				</div>
 			</div>
-			<div class = "col-sm-0">
-			</div>
-		</div>
 
-		<div class="row">
-			<div class = "col-sm-4 text-center">
-				<div class ="footer">
-				&copy; 2016, designed by <a href="mailto:mlasky46@gmail.com">Maxwell Lasky</a> 
-				</div>
-			</div>
-			<div class = "col-sm-4">
-			</div>
-			<div class = "col-sm-4">
-			</div>
 		</div>
-		
-		<div class="row">
-			<div class = "col-sm-4 text-center">
-				<a class="btn btn-social-icon btn-twitter">
-					<i class="fa fa-twitter"></i>
-				</a>
-				<a class="btn btn-social-icon btn-facebook">
-					<i class="fa fa-facebook"></i>
-				</a>
-				<a class="btn btn-social-icon btn-github" href="https://github.com/comountainclimber/jamSpaces" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</div>
-			<div class = "col-sm-4">
-			</div>
-			<div class = "col-sm-4">
-			</div>
-		</div>
-
-	</div>
-<script type="text/javascript" src="../javascripts/resources/angular1-4-5.js"></script>
-<script type="text/javascript" src="../javascripts/resources/ng-route.js"></script>
-<script type="text/javascript" src="../javascripts/resources/ng-touch.js"></script>
-<script type="text/javascript" src="../javascripts/main.js"></script>
-<script type="text/javascript" src="../javascripts/controllers/HomeCtrl.js"></script>
-<script type="text/javascript" src="../javascripts/controllers/JamCtrl.js"></script>
-<script type="text/javascript" src="../javascripts/resources/wad.js"></script>
-<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
-</body>
+		<script type="text/javascript" src="../javascripts/resources/angular1-4-5.js"></script>
+		<script type="text/javascript" src="../javascripts/resources/ng-route.js"></script>
+		<script type="text/javascript" src="../javascripts/resources/ng-touch.js"></script>
+		<script type="text/javascript" src="../javascripts/main.js"></script>
+		<script type="text/javascript" src="../javascripts/controllers/HomeCtrl.js"></script>
+		<script type="text/javascript" src="../javascripts/controllers/JamCtrl.js"></script>
+		<script type="text/javascript" src="../javascripts/resources/wad.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+	</body>
 </html>
