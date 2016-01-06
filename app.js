@@ -22,7 +22,7 @@ app.post('/userinfo', function(req, res){
 })
 
 
-app.server = app.listen(8080)
+app.server = app.listen(80)
 
 var io = require("socket.io")
 var socketServer = io(app.server)
