@@ -37,7 +37,7 @@ a {
 
 .nav_bar h1{
   color: #ecf0f1;
-  font-size: 140px;
+  font-size: 150px;
   font-family: 'Just Me Again Down Here', sans-serif;
   margin-bottom: -28px;
   /* background-color: #6FC5C2; */
@@ -163,7 +163,7 @@ a {
 }
 
 .help_info{
-  color: seashell;
+  color: #4C4845;
   margin-bottom: 17px;
   margin-top: 0px;
   letter-spacing: -1px;
